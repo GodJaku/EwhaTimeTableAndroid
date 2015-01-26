@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EwhaTimeTable</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="viewtable">시간표검색</string>
+    <string name="timetable">시간표</string>
+    <string name="search">검색</string>
+    
+    <!-- search keyword -->
+    <string name="searchText01">년도/학기 : </string>
+    <string name="searchText02">  ,교과목구분 : </string>
+    <string name="searchText03">  ,교양영역 : </string>
+    <string name="searchText04">  ,대학 : </string>
+    <string name="searchText05">  ,학과/전공 : </string>
+    <string name="searchText06">  ,학년 : </string>
+    <string name="searchText07">  ,원어강의 : </string>
+    <string name="searchText08">  ,수업요일 : </string>
+    <string name="searchText09">  ,수업교시 : </string>
+    <string name="searchText10">  ,학수번호 : </string>
+    <string name="searchText11">  ,교과목명 : </string>
+    <string name="searchText12">  ,담당교수 : </string>
+    <string name="searchText13">  ,영어강의 : </string>
+    
+    <string name="defaultspinner">전체</string>
+    <string name="semesterText">학기</string>
+    <string name="semesterKind01">정규</string>
+    <string name="semesterKind02">계절</string>
+    
+    <string name="univSpinnerString">단대선택</string>
+    <string name="majSpinnerString">전공선택</string>
+    <string name="subKindSpinnerString">교과목구분</string>
+    <string name="daySpinnerString">요일</string>
+    <string name="timeSpinnerString">교시</string>
+    
+    <string name="subjectKindDetail01">교양선택</string>
+    
+    <string name="editText01">학수번호</string>
+    <string name="editText02">교과목명</string>
+    <string name="editText03">담당교수</string>
+    <string name="isEnglish">영어강의</string>
+    
+    <string name="popuptext01">학수번호-분반</string>
+    <string name="popuptext02">교과목구분</string>
+    <string name="popuptext03">개설학과(학년)</string>
+    <string name="popuptext04">학점 / 시간</string>
+    <string name="popuptext05">시간 : </string>
+    <string name="popuptext06">요일/교시</string>
+    <string name="popuptext07">교실</string>
+    <string name="popuptext08">영어강의</string>
+    <string name="popuptext09">수강제한인원</string>
+    <string name="popuptext10">비고</string>
+    
+    <string name="err">1개 이상의 조건을 입력해주세요.</string>
+</resources>

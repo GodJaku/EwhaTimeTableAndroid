@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativePopup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="30dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/popup_background"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp" >
+
+    <TextView
+        android:id="@+id/subNamePopup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="left"
+        android:textStyle="bold"
+        android:textColor="#588c73"
+        android:textSize="20dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/subNamePopup"
+        android:background="#588c73" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/divider" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/linear01Popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext01" />
+
+                <TextView
+                    android:id="@+id/subNumPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear02_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear01Popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext02" />
+
+                <TextView
+                    android:id="@+id/subKindPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear03_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear02_popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext03" />
+
+                <TextView
+                    android:id="@+id/majorPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear04_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear03_popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext04" />
+
+                <TextView
+                    android:id="@+id/gradePopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+
+                <!-- <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext05" />
+
+                <TextView
+                    android:id="@+id/timePopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" /> -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear05_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear04_popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext06" />
+
+                <TextView
+                    android:id="@+id/lecturePoup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- <LinearLayout
+                android:id="@+id/linear06_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear05_popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext07" />
+
+                <TextView
+                    android:id="@+id/classPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout> -->
+
+            <LinearLayout
+                android:id="@+id/linear07_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear05_popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext08" />
+
+                <TextView
+                    android:id="@+id/isEnglishPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear08_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear07_popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext09" />
+
+                <TextView
+                    android:id="@+id/studentCountPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear09_popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear08_popup"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext10" />
+
+                <TextView
+                    android:id="@+id/etcmsgPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear09_popup"
+                android:layout_marginTop="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="#588c73"
+                android:textColor="#f2eeb7"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:text="Close" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
