@@ -357,13 +357,6 @@
         <item>10D70</item>
         <item>10D71</item>
     </string-array>
-    
-    <!-- <item>예술대학</item> -->
-    <!-- <item>음악대학</item> -->
-    <!-- <item>조형예술대학</item> -->
-    
-    <!-- <item>법과대학</item> -->
-    
     <string-array name="univ13">
         <item>전체</item>
         <item>법학과</item>
@@ -372,19 +365,15 @@
         <item>10760</item>
     </string-array>
     
-    <!-- <item>체육과학대학</item> -->
-    <!-- <item>간호과학대학</item> -->
-    <!-- <item>생활환경대학</item> -->
-    <!-- <item>국제학부</item> -->
-
-    <!-- <string-array name="refine">
+    <string-array name="grade">
         <item>전체</item>
-        
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
-    
-    <string-array name="refinevalue">
-        
-    </string-array> -->
     
     <string-array name="days">
         <item>전체</item>

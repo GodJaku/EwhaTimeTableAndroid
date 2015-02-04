@@ -110,7 +110,7 @@ public class EwhaServer {
 			    if(idx != 0) postparams.add(new BasicNameValuePair("lectureDay", Integer.toString(idx)));
 			    idx= search.getTime();
 			    if(idx != 0) postparams.add(new BasicNameValuePair("lectureHour", Integer.toString(idx)));
-			    postparams.add(new BasicNameValuePair("engChk", (search.getIsEnglish() ? "Y" : "")));
+//			    postparams.add(new BasicNameValuePair("engChk", (search.getIsEnglish() ? "Y" : "")));
 //			    Log.d(TAG, "is english ? "+search.getIsEnglish());
 //			    if(search.getIsEnglish()) postparams.add(new BasicNameValuePair("engChk", "Y"));
 //			    else postparams.add(new BasicNameValuePair("engChk", ""));

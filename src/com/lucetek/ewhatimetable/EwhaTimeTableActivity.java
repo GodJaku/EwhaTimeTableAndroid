@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -45,7 +46,8 @@ public class EwhaTimeTableActivity extends Activity {
 	private Spinner subKindSpin= null;
 	private Spinner daySpin= null;
 	private Spinner timeSpin= null;
-	private CheckBox isEnglish= null;
+	private Spinner gradeSpin= null;
+//	private CheckBox isEnglish= null;
 	private EditText subNumberEdit= null;
 	private EditText subNameEdit= null;
 	private EditText profNameEdit= null;
@@ -66,6 +68,7 @@ public class EwhaTimeTableActivity extends Activity {
 	private ArrayList<String> subKindValueList= null;
 	private ArrayList<String> dayList= null;
 	private ArrayList<String> timeList= null;
+	private ArrayList<String> gradeList= null;
 	private ArrayList<String> defaultList= new ArrayList<String>();
 	
 	private ArrayList<SpinnerAdapter> majAdapterList= new ArrayList<SpinnerAdapter>();
@@ -93,6 +96,8 @@ public class EwhaTimeTableActivity extends Activity {
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_ewha_time_talbe);
         
+        Log.d(TAG, "on create");
+        
         makeView();
         makeResource();
     }
@@ -110,7 +115,8 @@ public class EwhaTimeTableActivity extends Activity {
     	profNameEdit= (EditText)findViewById(R.id.professorName);
     	daySpin= (Spinner)findViewById(R.id.dayCondition);
     	timeSpin= (Spinner)findViewById(R.id.timeCondition);
-    	isEnglish= (CheckBox)findViewById(R.id.isEnglish);
+//    	isEnglish= (CheckBox)findViewById(R.id.isEnglish);
+    	gradeSpin= (Spinner)findViewById(R.id.gradeCondition);
     	mSearch= (TextView)findViewById(R.id.search);
     	mShowMenu= (TextView)findViewById(R.id.showmenu);
     	mList= (ListView)findViewById(R.id.resultlist);
@@ -154,6 +160,7 @@ public class EwhaTimeTableActivity extends Activity {
     	univList= new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.universe)));
     	subKindList= new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.subjectdiv)));
     	subKindValueList= new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.subjectdivvalue)));
+    	gradeList= new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.grade)));
     	dayList= new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.days)));
     	timeList= new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.time)));
     	defaultAdapter= new SpinnerAdapter(this, R.layout.spinner_layout, R.id.spinner_text, defaultList);
@@ -177,6 +184,7 @@ public class EwhaTimeTableActivity extends Activity {
     	univSpin.setAdapter(new SpinnerAdapter(this, R.layout.spinner_layout, R.id.spinner_text, univList));
     	majSpin.setAdapter(defaultAdapter);
     	subKindSpin.setAdapter(new SpinnerAdapter(this, R.layout.spinner_layout, R.id.spinner_text, subKindList));
+    	gradeSpin.setAdapter(new SpinnerAdapter(this, R.layout.spinner_layout, R.id.spinner_text, gradeList));
     	daySpin.setAdapter(new SpinnerAdapter(this, R.layout.spinner_layout, R.id.spinner_text, dayList));
     	timeSpin.setAdapter(new SpinnerAdapter(this, R.layout.spinner_layout, R.id.spinner_text, timeList));
     	univSpin.setOnItemSelectedListener(listener);
@@ -199,9 +207,7 @@ public class EwhaTimeTableActivity extends Activity {
     	((TextView)popup.findViewById(R.id.subKindPopup)).setText(subKind);
     	((TextView)popup.findViewById(R.id.majorPopup)).setText(maj);
     	((TextView)popup.findViewById(R.id.gradePopup)).setText(gradeValue + " / " + time);
-//    	((TextView)popup.findViewById(R.id.timePopup)).setText(time);
     	((TextView)popup.findViewById(R.id.lecturePoup)).setText(lecture);
-//    	((TextView)popup.findViewById(R.id.classPopup)).setText(classroom);
     	((TextView)popup.findViewById(R.id.isEnglishPopup)).setText(isEng);
     	((TextView)popup.findViewById(R.id.studentCountPopup)).setText(student);
     	((TextView)popup.findViewById(R.id.etcmsgPopup)).setText(etcmsg);
@@ -247,12 +253,18 @@ public class EwhaTimeTableActivity extends Activity {
     				idx= subKindSpin.getSelectedItemPosition();
     				searchData.setSubKind(idx == 0 ? null : subKindValueList.get(subKindSpin.getSelectedItemPosition()-1));
     				str= subNumberEdit.getText().toString();
-    				if(str != null && !str.equalsIgnoreCase("")) searchData.setSubNumber(str);
+//    				if(str != null && !str.equalsIgnoreCase(""))
+    				searchData.setSubNumber(str);
     				str= subNameEdit.getText().toString();
-        			if(str != null && !str.equalsIgnoreCase("")) searchData.setSubName(str);
+//        			if(str != null && !str.equalsIgnoreCase(""))
+    				searchData.setSubName(str);
         			str= profNameEdit.getText().toString();
-        			if(str != null && !str.equalsIgnoreCase("")) searchData.setProfessor(str);
-    				searchData.setIsEnglish(isEnglish.isChecked());
+//        			if(str != null && !str.equalsIgnoreCase(""))
+        			searchData.setProfessor(str);
+//    				searchData.setIsEnglish(isEnglish.isChecked());
+        			idx= gradeSpin.getSelectedItemPosition();
+        			if(idx != 0) searchData.setGrade(Integer.toString(idx));
+        			else searchData.setGrade("");
     				searchData.setDay(daySpin.getSelectedItemPosition());
     				searchData.setTime(timeSpin.getSelectedItemPosition());
     				
@@ -356,8 +368,15 @@ public class EwhaTimeTableActivity extends Activity {
     	return mList;
     }
     
+    @Override
+    protected void onResume(){
+    	super.onResume();
+//    	Log.d(TAG, "on resume");
+    }
+    
     protected void onPause(){
     	super.onPause();
+    	Log.d(TAG, "on pause");
     	if(dialog != null) dialog.dismiss();
     	finish();
     }

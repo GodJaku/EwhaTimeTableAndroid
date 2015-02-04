@@ -16,7 +16,7 @@ public class SearchData {
 	private String mSubNumber= "";
 	private String mSubName= "";
 	private String mProfessor= "";
-	private boolean mIsEnglish= false;
+	private String mGrade= "";
 	private int mDay= 0;
 	private int mTime= 0;
 
@@ -31,7 +31,7 @@ public class SearchData {
 	public void setSubNumber(String sub){ mSubNumber= sub; }
 	public void setSubName(String sub){ mSubName= sub; }
 	public void setProfessor(String prof){ mProfessor= prof; }
-	public void setIsEnglish(boolean eng){ mIsEnglish= eng; }
+	public void setGrade(String grade){ mGrade= grade; };
 	public void setDay(int day){ mDay= day; }
 	public void setTime(int time){ mTime= time; }
 	
@@ -44,7 +44,7 @@ public class SearchData {
 	public String getSubNumber(){ return mSubNumber; }
 	public String getSubName(){ return mSubName; }
 	public String getProfessor(){ return mProfessor; }
-	public boolean getIsEnglish(){ return mIsEnglish; }
+	public String getGrade(){ return mGrade; }
 	public int getDay(){ return mDay; }
 	public int getTime(){ return mTime; }
 }

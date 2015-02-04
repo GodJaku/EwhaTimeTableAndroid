@@ -126,7 +126,7 @@
                 android:paddingRight="10dp"
                 android:weightSum="3" >
 
-                <RelativeLayout
+                <!-- <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,7 +144,13 @@
                         android:layout_height="1dp"
                         android:background="#588c73"
                         android:layout_centerVertical="true"/>
-                </RelativeLayout>
+                </RelativeLayout> -->
+                <Spinner
+                    android:id="@+id/gradeCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:prompt="@string/gradeSpinnerString"/>
 
                     <Spinner
                         android:id="@+id/dayCondition"
