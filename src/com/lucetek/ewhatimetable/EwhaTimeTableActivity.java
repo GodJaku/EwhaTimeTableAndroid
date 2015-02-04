@@ -32,7 +32,9 @@ import android.widget.ViewAnimator;
 
 public class EwhaTimeTableActivity extends Activity {
 	private static final String TAG= "EwhaTimeTable";
-	private static final String site= "http://eureka.ewha.ac.kr/eureka/hs/sg/openHssg504021q.do?popupYn=Y";
+	public static final String site= "http://eureka.ewha.ac.kr/eureka/hs/sg/openHssg504021q.do?popupYn=Y";
+	private static long backPressedTime= 0;
+	private static Toast toast= null;
 	
 	private ViewAnimator menu= null;
 	private TranslateAnimation anim= null;
@@ -100,6 +102,12 @@ public class EwhaTimeTableActivity extends Activity {
         
         makeView();
         makeResource();
+    }
+    
+    @Override
+    protected void onResume(){
+    	super.onResume();
+//    	Log.d(TAG, "on resume");
     }
     
     private void makeView(){
@@ -368,16 +376,25 @@ public class EwhaTimeTableActivity extends Activity {
     	return mList;
     }
     
-    @Override
-    protected void onResume(){
-    	super.onResume();
-//    	Log.d(TAG, "on resume");
-    }
-    
     protected void onPause(){
     	super.onPause();
     	Log.d(TAG, "on pause");
     	if(dialog != null) dialog.dismiss();
     	finish();
+    }
+    
+    @Override
+    public void onBackPressed(){
+//    	super.onBackPressed();
+    	if(System.currentTimeMillis() > backPressedTime + 2000){
+    		backPressedTime= System.currentTimeMillis();
+    		toast= Toast.makeText(getApplicationContext(), getResources().getString(R.string.back_finish), Toast.LENGTH_SHORT);
+    		toast.show();
+    		return ;
+    	}
+    	if(System.currentTimeMillis() <= backPressedTime+2000){
+    		toast.cancel();
+    		EwhaTimeTableActivity.this.finish();
+    	}
     }
 }

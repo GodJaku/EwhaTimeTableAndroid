@@ -130,6 +130,7 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f050000;
+        public static final int back_finish=0x7f05002d;
         public static final int daySpinnerString=0x7f050019;
         public static final int defaultspinner=0x7f050012;
         public static final int editText01=0x7f05001d;

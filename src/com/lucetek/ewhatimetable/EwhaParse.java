@@ -64,7 +64,6 @@ public class EwhaParse {
 				max= a.length;
 				if(max < b.length) max= b.length;
 				if(max < c.length) max= c.length;
-				
 				for(j=0; j<max; j++){
 					temp += (j == 0 ? "" : "\n");
 					if(j < a.length) temp += a[j] + " ";
@@ -73,6 +72,9 @@ public class EwhaParse {
 				}
 				result.setLecture(temp);
 				temp= "";
+				
+				
+				
 				result.setIsEng(content1.get(i*19 + 15).text());
 				result.setStudent(content1.get(i*19 + 18).text());
 				
