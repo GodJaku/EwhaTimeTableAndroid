@@ -32,11 +32,6 @@ public class EwhaServer {
 		mContext= context;
 	}
 	
-//	public void parse(String url){
-//		if(mHTTP == null) mHTTP= 
-//		(new ParseURL(mContext, url)).execute();
-//	}
-	
 	public void parse(String url, SearchData search){
 		parse(url, search, false, 1);
 	}
@@ -48,21 +43,13 @@ public class EwhaServer {
 	
 	private class ParseURL extends AsyncTask<Void, Void, EwhaAdapter>{
 		private Context mContext= null;
-//		private String mUrl= null;
 		private ProgressDialog dlg= null;
-//		private SearchData mSearch= null;
 		private EwhaHTTP mHTTP= null;
 		
 		public ParseURL(Context context, EwhaHTTP http){
 			mContext= context;
 			mHTTP= http;
 		}
-		
-//		public ParseURL(Context context, String url, SearchData search){
-//			mContext= context;
-//			mUrl= url;
-//			mSearch= search;
-//		}
 		
 		@Override
 		protected void onPreExecute(){
@@ -84,7 +71,6 @@ public class EwhaServer {
 			    HttpPost httppost = new HttpPost(mHTTP.getURL());
 			    
 			    ArrayList<NameValuePair> postparams= new ArrayList<NameValuePair>();
-//			    postparams.add(new BasicNameValuePair("pageNum", "1"));
 			    result= search.getYearCd().toString() + Integer.toString(search.getSemester()) + Integer.toString(search.getSemKind());
 			    postparams.add(new BasicNameValuePair("yearTermCd", result));
 			    result= search.getSubKind();
@@ -96,7 +82,7 @@ public class EwhaServer {
 			    	postparams.add(new BasicNameValuePair("viewKindCd", result));
 			    	postparams.add(new BasicNameValuePair("areaCd", ""));
 			    }
-			    // universe condition
+			    
 			    if(search.getSemKind() == 1) postparams.add(new BasicNameValuePair("univCd", "U"));
 			    else postparams.add(new BasicNameValuePair("univCd", search.getUniv()));
 			    postparams.add(new BasicNameValuePair("clsMajCd", search.getMaj()));
@@ -110,10 +96,6 @@ public class EwhaServer {
 			    if(idx != 0) postparams.add(new BasicNameValuePair("lectureDay", Integer.toString(idx)));
 			    idx= search.getTime();
 			    if(idx != 0) postparams.add(new BasicNameValuePair("lectureHour", Integer.toString(idx)));
-//			    postparams.add(new BasicNameValuePair("engChk", (search.getIsEnglish() ? "Y" : "")));
-//			    Log.d(TAG, "is english ? "+search.getIsEnglish());
-//			    if(search.getIsEnglish()) postparams.add(new BasicNameValuePair("engChk", "Y"));
-//			    else postparams.add(new BasicNameValuePair("engChk", ""));
 			    
 			    postparams.add(new BasicNameValuePair("groupCd", "1500"));
 			    postparams.add(new BasicNameValuePair("excelYn", ""));

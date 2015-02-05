@@ -34,9 +34,9 @@ public class EwhaParse {
 		Elements day= doc.select(".th1CC");
 		String temp= "";
 		
-		if(content1.size() < 5)
-			Toast.makeText(((EwhaTimeTableActivity)mContext).getApplicationContext(), ((EwhaTimeTableActivity)mContext).getResources().getString(R.string.noresult), Toast.LENGTH_SHORT).show();
-		else{
+//		if(content1.size() < 5)
+//			Toast.makeText(((EwhaTimeTableActivity)mContext).getApplicationContext(), ((EwhaTimeTableActivity)mContext).getResources().getString(R.string.noresult), Toast.LENGTH_SHORT).show();
+//		else{
 			ArrayList<EwhaResult> resultList= ((EwhaTimeTableActivity)mContext).getResult();
 			if(resultList == null) resultList= new ArrayList<EwhaResult>();
 			else resultList.clear();
@@ -92,7 +92,7 @@ public class EwhaParse {
 			}
 			
 			((EwhaTimeTableActivity)mContext).setResult(resultList);
-		}
+//		}
 	}
 	
 }

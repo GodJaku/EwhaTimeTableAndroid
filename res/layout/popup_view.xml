@@ -64,12 +64,39 @@
                     android:textSize="15dp"
                     android:layout_weight="1" />
             </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/linear02popup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/linear01Popup"
+                android:weightSum="2">
+                
+				<TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:text="@string/popuptext11" />
+
+                <TextView
+                    android:id="@+id/profPopup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#588c73"
+                    android:textSize="15dp"
+                    android:layout_weight="1" />
+                
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linear02_popup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/linear01Popup"
+                android:layout_below="@+id/linear02popup"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:weightSum="2" >

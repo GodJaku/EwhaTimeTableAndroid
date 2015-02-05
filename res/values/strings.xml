@@ -52,6 +52,7 @@
     <string name="popuptext08">영어강의</string>
     <string name="popuptext09">수강제한인원</string>
     <string name="popuptext10">비고</string>
+    <string name="popuptext11">교수</string>
     
     <string name="err">1개 이상의 조건을 입력해주세요.</string>
     <string name="noresult">조건에 맞는 과목이 없습니다.</string>
