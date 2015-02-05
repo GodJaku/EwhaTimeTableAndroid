@@ -114,8 +114,12 @@ public class EwhaTimeTableActivity extends Activity {
     	if(dialog != null) dialog.dismiss();
     	if(mResult != null && mResult.size() > 0) savePreferences(false);
     	else savePreferences(true);
-    	
-//    	finish();
+    }
+    
+    @Override
+    protected void onDestroy(){
+    	Log.d(TAG, "on destroy");
+    	super.onDestroy();
     }
     
     private void makeView(){
