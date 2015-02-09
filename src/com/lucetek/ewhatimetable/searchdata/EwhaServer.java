@@ -14,19 +14,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import com.lucetek.ewhatimetable.EwhaTimeTableActivity;
 import com.lucetek.ewhatimetable.R;
-import com.lucetek.ewhatimetable.R.layout;
 import com.lucetek.ewhatimetable.home.EwhaHomeActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.Toast;
 
 public class EwhaServer {
-	private static final String TAG= "EwhaTimeTableParse";
 	private Context mContext= null;
 	private EwhaHTTP mHTTP= null;
 	
@@ -39,7 +35,8 @@ public class EwhaServer {
 	}
 	
 	public void parse(String url, SearchData search, boolean isUpdate, int page){
-		mHTTP= new EwhaHTTP(mContext, url, search, isUpdate, page);
+//		mHTTP= new EwhaHTTP(mContext, url, search, isUpdate, page);
+		mHTTP= new EwhaHTTP(url, search, isUpdate, page);
 		(new ParseURL(mContext, mHTTP)).execute();
 	}
 	
@@ -128,7 +125,8 @@ public class EwhaServer {
 			super.onPostExecute(result);
 			dlg= ((EwhaHomeActivity)mContext).getDialog();
 			if(dlg != null && dlg.isShowing()) dlg.dismiss();
-			((EwhaHomeActivity)mContext).getSearchFragment().getListView().setAdapter(result);
+			if(result != null && result.getCount() > 0)
+				((EwhaHomeActivity)mContext).getSearchFragment().getListView().setAdapter(result);
 		}
 	}
 }

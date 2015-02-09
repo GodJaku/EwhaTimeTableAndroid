@@ -12,7 +12,6 @@ public class SearchData {
 	private String mUniv= "";
 	private String mMaj= "";
 	private String mSubKind= "";
-	private String mRefine= "";
 	private String mSubNumber= "";
 	private String mSubName= "";
 	private String mProfessor= "";

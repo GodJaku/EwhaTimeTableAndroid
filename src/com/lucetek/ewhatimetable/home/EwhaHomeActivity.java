@@ -7,8 +7,8 @@ import com.lucetek.ewhatimetable.fragment.EwhaTimeTableAboutDeveloperFragment;
 import com.lucetek.ewhatimetable.fragment.EwhaTimeTableGridFragment;
 import com.lucetek.ewhatimetable.fragment.EwhaTimeTableMainFragment;
 import com.lucetek.ewhatimetable.fragment.EwhaTimeTableSearchFragment;
+import com.lucetek.ewhatimetable.timetabledata.EwhaTimeTableMyTimeTable;
 
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -22,30 +22,22 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterface{
-	private static final String TAG= "EwhaTimeTableHomeActivity";
-	private static final int MAIN= 0;
-	private static final int SEARCH= 1;
-	private static final int GRID= 2;
-	private static final int ABOUTDEVELOPER= 3;
 
 	private static long backPressedTime= 0;
 	private static Toast toast= null;
 	
-	// for drawer data 
-	private ArrayList<String> mDrawerItemString= new ArrayList<String>();
-	
-	// for view
 	private DrawerLayout mDrawer= null;
 	private ListView mDrawerList= null;
+	private ArrayList<String> mDrawerItemString= new ArrayList<String>();
 	
-	// for fragment
-	private FragmentManager frgManager= null;
 	private FragmentTransaction frgTransaction= null;
 	
 	private EwhaTimeTableMainFragment mMainFragment= null;
 	private EwhaTimeTableSearchFragment mSearchFragment= null;
 	private EwhaTimeTableGridFragment mGridFragment= null;
 	private EwhaTimeTableAboutDeveloperFragment mAboutDeveloperFragment= null;
+	
+	private EwhaTimeTableMyTimeTable mTimeTable= null;
 	
 	// after
 	private ProgressDialog dialog= null;
@@ -96,6 +88,8 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 	private void makeResources(){
 		for(int i=0; i<4; i++) mDrawerItemString.add(getResources().getString(R.string.drawer01+i));
 		mDrawerList.setAdapter(new ArrayAdapter(this, R.layout.draweritem, mDrawerItemString));
+		
+		mTimeTable= new EwhaTimeTableMyTimeTable();
 	}
 	
 	public ProgressDialog makeDialog(){

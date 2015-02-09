@@ -14,21 +14,6 @@
     <string name="timetable">시간표</string>
     <string name="search">검색</string>
     
-    <!-- search keyword -->
-   <!--  <string name="searchText01">년도/학기 : </string>
-    <string name="searchText02">  ,교과목구분 : </string>
-    <string name="searchText03">  ,교양영역 : </string>
-    <string name="searchText04">  ,대학 : </string>
-    <string name="searchText05">  ,학과/전공 : </string>
-    <string name="searchText06">  ,학년 : </string>
-    <string name="searchText07">  ,원어강의 : </string>
-    <string name="searchText08">  ,수업요일 : </string>
-    <string name="searchText09">  ,수업교시 : </string>
-    <string name="searchText10">  ,학수번호 : </string>
-    <string name="searchText11">  ,교과목명 : </string>
-    <string name="searchText12">  ,담당교수 : </string>
-    <string name="searchText13">  ,영어강의 : </string> -->
-    
     <string name="defaultspinner">전체</string>
     <string name="semesterText">학기</string>
     <string name="semesterKind01">정규</string>
@@ -59,11 +44,23 @@
     <string name="popuptext09">수강제한인원</string>
     <string name="popuptext10">비고</string>
     <string name="popuptext11">교수</string>
+    <string name="addTimeTable">시간표에 추가</string>
     
     <string name="err">1개 이상의 조건을 입력해주세요.</string>
     <string name="noresult">조건에 맞는 과목이 없습니다.</string>
     <string name="back_finish">버튼을 한번 더 누르면 앱이 종료됩니다.</string>
     
     <!-- timetable mode -->
+    
+    <string name="gridFragmentText01">시간표 보기</string>
+    
+    <string name="gridFragmentTimeText01">"08:00\r\n~\r\n09:15"</string>
+    <string name="gridFragmentTimeText02">"09:30\r\n~\r\n10:45"</string>
+    <string name="gridFragmentTimeText03">"11:00\r\n~\r\n12:15"</string>
+    <string name="gridFragmentTimeText04">"12:30\r\n~\r\n13:45"</string>
+    <string name="gridFragmentTimeText05">"14:00\r\n~\r\n15:15"</string>
+    <string name="gridFragmentTimeText06">"15:30\r\n~\r\n16:45"</string>
+    <string name="gridFragmentTimeText07">"17:00\r\n~\r\n18:15"</string>
+    <string name="gridFragmentTimeText08">"18:30\r\n~\r\n19:45"</string>
     
 </resources>

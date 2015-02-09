@@ -1,18 +1,22 @@
 package com.lucetek.ewhatimetable.searchdata;
 
-
-import android.content.Context;
-
 public class EwhaHTTP {
 
-	private Context mContext= null;
+//	private Context mContext= null;
 	private String mURL= null;
 	private SearchData mSearch= null;
 	private boolean isUpdate= false;
 	private int mPage= 1;
 	
-	public EwhaHTTP(Context context, String url, SearchData search, boolean isUpdate, int page){
-		mContext= context;
+//	public EwhaHTTP(Context context, String url, SearchData search, boolean isUpdate, int page){
+//		mContext= context;
+//		mURL= url;
+//		mSearch= search;
+//		this.isUpdate= isUpdate;
+//		mPage= page;
+//	}
+	
+	public EwhaHTTP(String url, SearchData search, boolean isUpdate, int page){
 		mURL= url;
 		mSearch= search;
 		this.isUpdate= isUpdate;

@@ -6,14 +6,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import com.lucetek.ewhatimetable.EwhaTimeTableActivity;
 import com.lucetek.ewhatimetable.R;
-import com.lucetek.ewhatimetable.R.id;
 import com.lucetek.ewhatimetable.home.EwhaHomeActivity;
 
-import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,9 +36,16 @@ public class EwhaParse {
 		Elements day= doc.select(".th1CC");
 		String temp= "";
 		
-//		if(content1.size() < 5)
-//			Toast.makeText(((EwhaTimeTableActivity)mContext).getApplicationContext(), ((EwhaTimeTableActivity)mContext).getResources().getString(R.string.noresult), Toast.LENGTH_SHORT).show();
-//		else{
+		if(content1.size() < 5){
+			((EwhaHomeActivity)mContext).runOnUiThread(new Runnable(){
+				@Override
+				public void run(){
+					Toast.makeText(((EwhaHomeActivity)mContext).getApplicationContext(), ((EwhaHomeActivity)mContext).getResources().getString(R.string.noresult), Toast.LENGTH_SHORT).show();
+				}
+			});
+//			((EwhaHomeActivity)mContext).getSearchFragment().setResult(null);
+		}
+		else{
 			ArrayList<EwhaResult> resultList= ((EwhaHomeActivity)mContext).getSearchFragment().getResult();
 			if(resultList == null) resultList= new ArrayList<EwhaResult>();
 			else resultList.clear();
@@ -79,8 +82,6 @@ public class EwhaParse {
 				result.setLecture(temp);
 				temp= "";
 				
-				
-				
 				result.setIsEng(content1.get(i*19 + 15).text());
 				result.setStudent(content1.get(i*19 + 18).text());
 				
@@ -98,7 +99,7 @@ public class EwhaParse {
 			}
 			
 			((EwhaHomeActivity)mContext).getSearchFragment().setResult(resultList);
-//		}
+		}
 	}
 	
 }

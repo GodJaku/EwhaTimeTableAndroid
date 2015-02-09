@@ -207,11 +207,10 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 	private void viewPopup(String subName, String subNum, String classNum, String subKind, 
     		String maj, String grade, String prof, String gradeValue, String time, String lecture, String classroom, String isEng, String student, String etcmsg){
     	View popup= getActivity().getLayoutInflater().inflate(R.layout.popup_view, null);
-    	mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+    	mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
     	mPopup.setAnimationStyle(0);
     	mPopup.setFocusable(true);
-    	mPopup.setOutsideTouchable(false);
-    	
+//    	mPopup.setOutsideTouchable(true);
     	
     	((TextView)popup.findViewById(R.id.subNamePopup)).setText(subName);
     	((TextView)popup.findViewById(R.id.profPopup)).setText(prof);
@@ -225,6 +224,30 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	((TextView)popup.findViewById(R.id.etcmsgPopup)).setText(etcmsg);
     	
     	((TextView)popup.findViewById(R.id.close)).setOnClickListener(click);
+    	((RelativeLayout)popup.findViewById(R.id.popupBackground)).setOnClickListener(click);
+    	
+    	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
+    }
+	
+	private void viewPopup(EwhaResult selected){
+    	View popup= getActivity().getLayoutInflater().inflate(R.layout.popup_view, null);
+    	mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+    	mPopup.setAnimationStyle(0);
+    	mPopup.setFocusable(true);
+    	
+    	((TextView)popup.findViewById(R.id.subNamePopup)).setText(selected.getSubName());
+    	((TextView)popup.findViewById(R.id.profPopup)).setText(selected.getProf());
+    	((TextView)popup.findViewById(R.id.subNumPopup)).setText(selected.getSubNum()+"-"+selected.getClassNum());
+    	((TextView)popup.findViewById(R.id.subKindPopup)).setText(selected.getSubKind());
+    	((TextView)popup.findViewById(R.id.majorPopup)).setText(selected.getSubKind());
+    	((TextView)popup.findViewById(R.id.gradePopup)).setText(selected.getGradeValue() + " / " + selected.getTime());
+    	((TextView)popup.findViewById(R.id.lecturePoup)).setText(selected.getLecture());
+    	((TextView)popup.findViewById(R.id.isEnglishPopup)).setText(selected.getIsEng());
+    	((TextView)popup.findViewById(R.id.studentCountPopup)).setText(selected.getStudent());
+    	((TextView)popup.findViewById(R.id.etcmsgPopup)).setText(selected.getEtcmsg());
+    	
+    	((TextView)popup.findViewById(R.id.close)).setOnClickListener(click);
+    	((RelativeLayout)popup.findViewById(R.id.popupBackground)).setOnClickListener(click);
     	
     	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
     }
@@ -272,7 +295,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     					homeInterface.makeDialog().show();
         				mServer.parse(site, searchData);
     				}
-				} else if(id == R.id.close){
+				} else if(id == R.id.close || id == R.id.popupBackground){
 					if(mPopup != null) mPopup.dismiss();
 				} else if(id != R.id.relativePopup)
 					if(isMenuVisible) hideMenu();
@@ -288,10 +311,11 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	@Override
     	public void onItemClick(AdapterView<?> adapter, View v, int position, long id){
     		if(adapter.getId() == R.id.resultlist){
-    			EwhaResult temp= mResult.get(position);
-    			viewPopup(temp.getSubName(), temp.getSubNum(), temp.getClassNum(), temp.getSubKind()
-    					, temp.getMaj(), temp.getGrade(), temp.getProf(), temp.getGradeValue(), temp.getTime()
-    					, temp.getLecture(), temp.getClassName(), temp.getIsEng(), temp.getStudent(), temp.getEtcmsg());
+//    			EwhaResult temp= mResult.get(position);
+//    			viewPopup(temp.getSubName(), temp.getSubNum(), temp.getClassNum(), temp.getSubKind()
+//    					, temp.getMaj(), temp.getGrade(), temp.getProf(), temp.getGradeValue(), temp.getTime()
+//    					, temp.getLecture(), temp.getClassName(), temp.getIsEng(), temp.getStudent(), temp.getEtcmsg());
+    			viewPopup(mResult.get(position));
     			if(isMenuVisible) hideMenu();
     		}
     	}
