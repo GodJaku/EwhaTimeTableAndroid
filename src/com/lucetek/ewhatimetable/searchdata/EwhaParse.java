@@ -1,4 +1,4 @@
-package com.lucetek.ewhatimetable;
+package com.lucetek.ewhatimetable.searchdata;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import com.lucetek.ewhatimetable.EwhaTimeTableActivity;
+import com.lucetek.ewhatimetable.R;
+import com.lucetek.ewhatimetable.R.id;
+import com.lucetek.ewhatimetable.home.EwhaHomeActivity;
+
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Spinner;
@@ -37,7 +43,7 @@ public class EwhaParse {
 //		if(content1.size() < 5)
 //			Toast.makeText(((EwhaTimeTableActivity)mContext).getApplicationContext(), ((EwhaTimeTableActivity)mContext).getResources().getString(R.string.noresult), Toast.LENGTH_SHORT).show();
 //		else{
-			ArrayList<EwhaResult> resultList= ((EwhaTimeTableActivity)mContext).getResult();
+			ArrayList<EwhaResult> resultList= ((EwhaHomeActivity)mContext).getSearchFragment().getResult();
 			if(resultList == null) resultList= new ArrayList<EwhaResult>();
 			else resultList.clear();
 			for(int i=0; i<doc.select(".th1L > a").size(); i++){
@@ -85,13 +91,13 @@ public class EwhaParse {
 					temp += (j == 0 ? "" : "\n") + a[j];
 				result.setEtcmsg(temp);
 				
-				j= ((Spinner)((EwhaTimeTableActivity)mContext).findViewById(R.id.gradeCondition)).getSelectedItemPosition();
+				j= ((Spinner)((EwhaHomeActivity)mContext).getSearchFragment().getView().findViewById(R.id.gradeCondition)).getSelectedItemPosition();
 				temp= (j == 0 ? "" : (Integer.toString(j)) + ".0");
 				if(temp.equals("") || (!temp.equals("") && temp.length() > 0 && result.getGradeValue().equals(temp)))
 					resultList.add(result);
 			}
 			
-			((EwhaTimeTableActivity)mContext).setResult(resultList);
+			((EwhaHomeActivity)mContext).getSearchFragment().setResult(resultList);
 //		}
 	}
 	

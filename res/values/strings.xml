@@ -2,14 +2,20 @@
 <resources>
 
     <string name="app_name">EwhaTimeTable</string>
-    <string name="hello_world">Hello world!</string>
-
+    
+    <!-- main -->
+    <string name="drawer01">메인</string>
+    <string name="drawer02">강의 검색</string>
+    <string name="drawer03">시간표 보기</string>
+    <string name="drawer04">개발자 정보</string>
+    
+	<!-- search mode -->
     <string name="viewtable">시간표검색</string>
     <string name="timetable">시간표</string>
     <string name="search">검색</string>
     
     <!-- search keyword -->
-    <string name="searchText01">년도/학기 : </string>
+   <!--  <string name="searchText01">년도/학기 : </string>
     <string name="searchText02">  ,교과목구분 : </string>
     <string name="searchText03">  ,교양영역 : </string>
     <string name="searchText04">  ,대학 : </string>
@@ -21,7 +27,7 @@
     <string name="searchText10">  ,학수번호 : </string>
     <string name="searchText11">  ,교과목명 : </string>
     <string name="searchText12">  ,담당교수 : </string>
-    <string name="searchText13">  ,영어강의 : </string>
+    <string name="searchText13">  ,영어강의 : </string> -->
     
     <string name="defaultspinner">전체</string>
     <string name="semesterText">학기</string>
@@ -57,4 +63,7 @@
     <string name="err">1개 이상의 조건을 입력해주세요.</string>
     <string name="noresult">조건에 맞는 과목이 없습니다.</string>
     <string name="back_finish">버튼을 한번 더 누르면 앱이 종료됩니다.</string>
+    
+    <!-- timetable mode -->
+    
 </resources>

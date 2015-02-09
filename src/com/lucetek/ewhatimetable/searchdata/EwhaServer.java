@@ -1,4 +1,4 @@
-package com.lucetek.ewhatimetable;
+package com.lucetek.ewhatimetable.searchdata;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +14,10 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import com.lucetek.ewhatimetable.EwhaTimeTableActivity;
 import com.lucetek.ewhatimetable.R;
+import com.lucetek.ewhatimetable.R.layout;
+import com.lucetek.ewhatimetable.home.EwhaHomeActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -23,7 +26,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class EwhaServer {
-	// constant
 	private static final String TAG= "EwhaTimeTableParse";
 	private Context mContext= null;
 	private EwhaHTTP mHTTP= null;
@@ -110,9 +112,9 @@ public class EwhaServer {
 			    
 			    if(result != null) {
 					EwhaParse parse= new EwhaParse(mContext, result);
-					((EwhaTimeTableActivity)mContext).setParse(parse);
+					((EwhaHomeActivity)mContext).getSearchFragment().setParse(parse);
 					
-					EwhaAdapter adapter= new EwhaAdapter(mContext, R.layout.listitem, ((EwhaTimeTableActivity)mContext).getResult());
+					EwhaAdapter adapter= new EwhaAdapter((EwhaHomeActivity)mContext, R.layout.listitem, ((EwhaHomeActivity)mContext).getSearchFragment().getResult());
 					return adapter;
 				} else Toast.makeText(mContext, "404 not found", Toast.LENGTH_SHORT).show();
 			    
@@ -124,11 +126,9 @@ public class EwhaServer {
 		@Override
 		protected void onPostExecute(EwhaAdapter result){
 			super.onPostExecute(result);
-			dlg= ((EwhaTimeTableActivity)mContext).getDialog(); 
+			dlg= ((EwhaHomeActivity)mContext).getDialog();
 			if(dlg != null && dlg.isShowing()) dlg.dismiss();
-//			((EwhaTimeTableActivity)mContext).getAdapter().notifyDataSetChanged();
-			((EwhaTimeTableActivity)mContext).getListView().setAdapter(result);
-//			((EwhaTimeTableActivity)mContext).getListView().invalidate();
+			((EwhaHomeActivity)mContext).getSearchFragment().getListView().setAdapter(result);
 		}
 	}
 }

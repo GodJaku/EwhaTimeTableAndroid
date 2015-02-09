@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ViewAnimator
+        android:id="@+id/animmator_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#ffffffff" >
+
+        <RelativeLayout
+            android:id="@+id/relative_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f2eeb3"
+            android:paddingTop="15dp" >
+
+            <LinearLayout
+                android:id="@+id/linear01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:weightSum="3" >
+
+                <EditText
+                    android:id="@+id/yearCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" 
+                    android:inputType="numberSigned"/>
+
+                <Spinner
+                    android:id="@+id/semesterCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <Spinner
+                    android:id="@+id/semKindCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear01"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:weightSum="3" >
+
+                <Spinner
+                    android:id="@+id/univCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:prompt="@string/defaultspinner" />
+
+                <Spinner
+                    android:id="@+id/majorCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:prompt="@string/defaultspinner" />
+
+                <Spinner
+                    android:id="@+id/subjectCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:prompt="@string/defaultspinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear02"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:weightSum="3" >
+
+                <EditText
+                    android:id="@+id/subjectNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/editText01"
+                    android:inputType="numberSigned" />
+
+                <EditText
+                    android:id="@+id/subjectName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/editText02" />
+
+                <EditText
+                    android:id="@+id/professorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/editText03" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear03"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:weightSum="3" >
+                
+                <Spinner
+                    android:id="@+id/gradeCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:prompt="@string/gradeSpinnerString"/>
+
+                    <Spinner
+                        android:id="@+id/dayCondition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:prompt="@string/defaultspinner" />
+
+                    <Spinner
+                        android:id="@+id/timeCondition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:prompt="@string/defaultspinner" />
+            </LinearLayout>
+            
+            <TextView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="search"
+                android:background="@drawable/but_background"
+                android:layout_below="@+id/linear04"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:textColor="#f2eeb3"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5px"
+                android:layout_below="@+id/search"
+                android:layout_marginTop="10dp"
+                android:background="#588c73" />
+        </RelativeLayout>
+    </ViewAnimator>
+    
+    <TextView
+        android:id="@+id/showmenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Show Menu"
+        android:gravity="center"
+        android:textColor="#f2eeb3"
+        android:background="#588c73"/>
+        <ListView
+            android:id="@+id/resultlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/showmenu"
+            android:layout_centerHorizontal="true"
+            android:divider="#454545"/>
+    <!-- </ScrollView> -->
+
+</RelativeLayout>

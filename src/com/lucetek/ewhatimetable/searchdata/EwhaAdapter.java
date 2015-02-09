@@ -1,15 +1,19 @@
-package com.lucetek.ewhatimetable;
+package com.lucetek.ewhatimetable.searchdata;
 
 import java.util.ArrayList;
 
+import com.lucetek.ewhatimetable.EwhaTimeTableActivity;
 import com.lucetek.ewhatimetable.R;
+import com.lucetek.ewhatimetable.R.id;
+import com.lucetek.ewhatimetable.R.layout;
+import com.lucetek.ewhatimetable.home.EwhaHomeActivity;
+import com.lucetek.ewhatimetable.home.EwhaHomeInterface;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 
 public class EwhaAdapter extends ArrayAdapter<EwhaResult>{
 	private static final String TAG= "EwhaTimeTable::EwhaAdapter";
@@ -24,7 +28,7 @@ public class EwhaAdapter extends ArrayAdapter<EwhaResult>{
 	
 	@Override
 	public View getView(int pos, View v, ViewGroup Container){
-		if(v == null) v= ((EwhaTimeTableActivity)mContext).getLayoutInflater().inflate(R.layout.listitem, null);
+		v= ((EwhaHomeActivity)mContext).getLayoutInflater().inflate(R.layout.listitem, null);
 		
 		((TextView)v.findViewById(R.id.subjectListItem)).setText(content.get(pos).getSubName());
 		((TextView)v.findViewById(R.id.professorListItem)).setText(content.get(pos).getProf());

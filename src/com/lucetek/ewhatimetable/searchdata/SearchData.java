@@ -1,4 +1,4 @@
-package com.lucetek.ewhatimetable;
+package com.lucetek.ewhatimetable.searchdata;
 
 import android.content.Context;
 

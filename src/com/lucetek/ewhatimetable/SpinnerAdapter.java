@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.lucetek.ewhatimetable.R;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -30,7 +31,8 @@ public class SpinnerAdapter extends ArrayAdapter<String>{
 	
 	@Override
 	public View getView(int position, View v, ViewGroup container){
-		if(v == null){ v= ((EwhaTimeTableActivity)mContext).getLayoutInflater().inflate(R.layout.spinner_layout, container, false); }
+//		if(v == null){ v= ((EwhaTimeTableActivity)mContext).getLayoutInflater().inflate(R.layout.spinner_layout, container, false); }
+		if(v == null){ v= LayoutInflater.from(mContext).inflate(R.layout.spinner_layout, container, false); }
 		contentText= (TextView)v.findViewById(R.id.spinner_text);
 		contentText.setText(content.get(position));
 		return v;

@@ -5,6 +5,11 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 import com.lucetek.ewhatimetable.R;
+import com.lucetek.ewhatimetable.searchdata.EwhaAdapter;
+import com.lucetek.ewhatimetable.searchdata.EwhaParse;
+import com.lucetek.ewhatimetable.searchdata.EwhaResult;
+import com.lucetek.ewhatimetable.searchdata.EwhaServer;
+import com.lucetek.ewhatimetable.searchdata.SearchData;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -143,9 +148,9 @@ public class EwhaTimeTableActivity extends Activity {
     	yearEdit.setText(Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
     	
     	menu.bringToFront();
-    	yearEdit.bringToFront();
-    	semesterSpin.bringToFront();
-    	semKindSpin.bringToFront();
+//    	yearEdit.bringToFront();
+//    	semesterSpin.bringToFront();
+//    	semKindSpin.bringToFront();
     	
     	menu.setVisibility(View.INVISIBLE);
     	menu.setOnClickListener(click);
@@ -384,7 +389,7 @@ public class EwhaTimeTableActivity extends Activity {
     public void onBackPressed(){
     	if(System.currentTimeMillis() > backPressedTime + 2000){
     		backPressedTime= System.currentTimeMillis();
-    		toast= Toast.makeText(getApplicationContext(), getResources().getString(R.string.back_finish), 300);
+    		toast= Toast.makeText(getApplicationContext(), getResources().getString(R.string.back_finish), Toast.LENGTH_SHORT);
     		toast.show();
     		return ;
     	}
