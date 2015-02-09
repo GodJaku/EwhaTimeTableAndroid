@@ -1,5 +1,6 @@
 package com.lucetek.ewhatimetable.timetabledata;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -14,6 +15,8 @@ public class EwhaTimeTableDataBaseHelper extends SQLiteOpenHelper {
 	private final String KEY_ID= "_id";
 	private final String KEY_CREATED_AT= "created_at";
 	private final String TABLE= "TIMETABLE";
+	
+	// key
 	private final String DAY= "_day";
 	private final String TIME= "_time";
 	private final String SUBNAME= "_subname";
@@ -30,7 +33,7 @@ public class EwhaTimeTableDataBaseHelper extends SQLiteOpenHelper {
 	private final String ISENGLISH= "_isenglish";
 	private final String STUDENT= "_student";
 	private final String ETCMSG= "_etcmsg";
-	private final String KRLECTUREPLAN= "_korlectureplan";
+	private final String KORLECTUREPLAN= "_korlectureplan";
 	private final String ENGLECTUREPLAN= "_englectureplan";
 	
 	private String CREATE_TABLE= "CREATE TABLE IF NOT EXISTS "+TABLE+"(_day INTEGER,_time INTEGER,_subname TEXT,_subnum TEXT,_classnum TEXT,"
@@ -45,6 +48,32 @@ public class EwhaTimeTableDataBaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(CREATE_TABLE);
+	}
+	
+	public void addCellContent(EwhaTimeTableCell cell){
+		SQLiteDatabase db= getWritableDatabase();
+		ContentValues value= new ContentValues();
+		value.put(DAY, cell.getDay());
+		value.put(TIME, cell.getTime());
+		value.put(SUBNAME, cell.getRawData().getSubName());
+		value.put(SUBNUM, cell.getRawData().getSubNum());
+		value.put(CLASSNUM, cell.getRawData().getClassNum());
+		value.put(SUBKIND, cell.getRawData().getSubKind());
+		value.put(MAJOR, cell.getRawData().getMaj());
+		value.put(GRADE, cell.getRawData().getGrade());
+		value.put(PROFESSOR, cell.getRawData().getProf());
+		value.put(GRADEVALUE, cell.getRawData().getGradeValue());
+		value.put(FULLTIME, cell.getRawData().getTime());
+		value.put(LECTURE, cell.getRawData().getLecture());
+		value.put(CLASSNAME, cell.getRawData().getClassName());
+		value.put(ISENGLISH, cell.getRawData().getIsEng());
+		value.put(STUDENT, cell.getRawData().getStudent());
+		value.put(ETCMSG, cell.getRawData().getEtcmsg());
+		value.put(KORLECTUREPLAN, cell.getRawData().getKorLecturePlan());
+		value.put(ENGLECTUREPLAN, cell.getRawData().getEngLecturePlan());
+		
+		db.insert(TABLE, null, value);
+		db.close();
 	}
 
 	@Override
