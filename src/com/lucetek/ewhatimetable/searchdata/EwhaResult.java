@@ -1,5 +1,7 @@
 package com.lucetek.ewhatimetable.searchdata;
 
+import java.util.StringTokenizer;
+
 import android.content.Context;
 
 public class EwhaResult {
@@ -23,6 +25,7 @@ public class EwhaResult {
 	private String korLecturePlan= null;		// 국문강의계획서
 	private String engLecturePlan= null;		// 영문강의계획서
 	
+	public EwhaResult(){}
 	public EwhaResult(Context context){ mContext= context; }
 	
 	public void setSubName(String str){ subName= str; }

@@ -3,6 +3,7 @@ package com.lucetek.ewhatimetable.fragment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.StringTokenizer;
 
 import com.lucetek.ewhatimetable.EwhaTimeTableActivity;
 import com.lucetek.ewhatimetable.R;
@@ -29,6 +30,8 @@ import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -97,9 +100,13 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 	
 	private SearchData searchData= null;
 	private ArrayList<EwhaResult> mResult= null;
+	private EwhaResult mSelected= null;
 	private EwhaAdapter resultContent= null;
 	
 	private InputMethodManager imm= null;
+	
+	// temp
+	private View popup= null;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -206,7 +213,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 	
 	private void viewPopup(String subName, String subNum, String classNum, String subKind, 
     		String maj, String grade, String prof, String gradeValue, String time, String lecture, String classroom, String isEng, String student, String etcmsg){
-    	View popup= getActivity().getLayoutInflater().inflate(R.layout.popup_view, null);
+    	final View popup= getActivity().getLayoutInflater().inflate(R.layout.popup_view, null);
     	mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
     	mPopup.setAnimationStyle(0);
     	mPopup.setFocusable(true);
@@ -225,6 +232,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	
     	((TextView)popup.findViewById(R.id.close)).setOnClickListener(click);
     	((RelativeLayout)popup.findViewById(R.id.popupBackground)).setOnClickListener(click);
+    	
     	
     	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
     }
@@ -248,6 +256,35 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	
     	((TextView)popup.findViewById(R.id.close)).setOnClickListener(click);
     	((RelativeLayout)popup.findViewById(R.id.popupBackground)).setOnClickListener(click);
+    	((CheckBox)popup.findViewById(R.id.addTimeTable)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if(isChecked){
+					int i;
+					StringTokenizer token= new StringTokenizer(mSelected.getLecture(), "\n");
+					while(token.hasMoreTokens()){
+						StringTokenizer ins_token= new StringTokenizer(token.nextToken(), "/");
+						if(ins_token.hasMoreTokens()){
+							StringTokenizer div= new StringTokenizer(ins_token.nextToken(), " ");
+							String day= div.nextToken();
+							
+							for(i=1; i<dayList.size()-1; i++)
+								if(day.equals(dayList.get(i)))
+									break;
+							if(i<dayList.size()-1){
+								StringTokenizer timeTokening= new StringTokenizer(div.nextToken(), "~");
+								int start= Integer.parseInt(timeTokening.nextToken()), end= Integer.parseInt(timeTokening.nextToken());
+								for(int j=start; j<=end; j++){
+									
+								}
+//									Log.d(getActivity().getClass().toString(), dayList.get(i)+"__"+Integer.toString(j));
+							}
+						}
+					}
+				} else{
+				}
+			}
+		});
     	
     	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
     }
@@ -315,7 +352,8 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 //    			viewPopup(temp.getSubName(), temp.getSubNum(), temp.getClassNum(), temp.getSubKind()
 //    					, temp.getMaj(), temp.getGrade(), temp.getProf(), temp.getGradeValue(), temp.getTime()
 //    					, temp.getLecture(), temp.getClassName(), temp.getIsEng(), temp.getStudent(), temp.getEtcmsg());
-    			viewPopup(mResult.get(position));
+    			mSelected= mResult.get(position);
+    			viewPopup(mSelected);
     			if(isMenuVisible) hideMenu();
     		}
     	}

@@ -5,7 +5,7 @@
     android:paddingBottom="10dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="10dp">
+    android:paddingTop="10dp" >
 
     <TextView
         android:id="@+id/grid_name"
@@ -16,8 +16,8 @@
         android:gravity="center"
         android:text="@string/gridFragmentText01"
         android:textColor="#588c73"
-        android:textStyle="bold" 
-        android:textSize="17dp"/>
+        android:textSize="17dp"
+        android:textStyle="bold" />
 
     <TableLayout
         android:id="@+id/timetable_editable"
@@ -25,7 +25,6 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/grid_name"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/time"
         android:weightSum="8" >
 
         <TableRow
@@ -40,9 +39,9 @@
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText01"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -103,11 +102,23 @@
                 android:layout_height="match_parent"
                 android:layout_column="5"
                 android:layout_weight="1" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="6"
+                android:layout_weight="1" />
         </TableRow>
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#588c73"/>
+            android:background="#588c73" />
 
         <TableRow
             android:id="@+id/class2row"
@@ -120,9 +131,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText02"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -178,12 +189,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
+            
+                        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </TableRow>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#588c73"/>
+            android:background="#588c73" />
 
         <TableRow
             android:id="@+id/class3row"
@@ -196,9 +218,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText03"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -254,12 +276,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
+            
+                        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </TableRow>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#588c73"/>
+            android:background="#588c73" />
 
         <TableRow
             android:id="@+id/class4row"
@@ -272,9 +305,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText04"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -330,12 +363,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
+            
+                        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </TableRow>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#588c73"/>
+            android:background="#588c73" />
 
         <TableRow
             android:id="@+id/class5row"
@@ -348,9 +392,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText05"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -406,12 +450,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
+            
+                        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </TableRow>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#588c73"/>
+            android:background="#588c73" />
 
         <TableRow
             android:id="@+id/class6row"
@@ -424,9 +479,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText06"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -482,12 +537,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
+            
+                        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </TableRow>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#588c73"/>
+            android:background="#588c73" />
 
         <TableRow
             android:id="@+id/class7row"
@@ -500,9 +566,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText07"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -558,12 +624,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
+            
+                        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </TableRow>
-        
-        <View 
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#588c73"/>
+            android:background="#588c73" />
 
         <TableRow
             android:id="@+id/class8row"
@@ -576,9 +653,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/gridFragmentTimeText08"
-                android:textColor="#588c73"
-                android:gravity="center" />
+                android:textColor="#588c73" />
 
             <View
                 android:layout_width="1dp"
@@ -631,6 +708,17 @@
 
             <TextView
                 android:id="@+id/friClass8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+            
+                        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#588c73" />
+
+            <TextView
+                android:id="@+id/satClass8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />

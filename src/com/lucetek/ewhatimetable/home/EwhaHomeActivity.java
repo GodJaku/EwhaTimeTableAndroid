@@ -11,6 +11,8 @@ import com.lucetek.ewhatimetable.timetabledata.EwhaTimeTableMyTimeTable;
 
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +24,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterface{
+	private SharedPreferences pref= null;
 
 	private static long backPressedTime= 0;
 	private static Toast toast= null;
@@ -89,7 +92,8 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 		for(int i=0; i<4; i++) mDrawerItemString.add(getResources().getString(R.string.drawer01+i));
 		mDrawerList.setAdapter(new ArrayAdapter(this, R.layout.draweritem, mDrawerItemString));
 		
-		mTimeTable= new EwhaTimeTableMyTimeTable();
+		pref= getSharedPreferences("lucetek", Context.MODE_PRIVATE);
+		mTimeTable= new EwhaTimeTableMyTimeTable(this, pref);
 	}
 	
 	public ProgressDialog makeDialog(){
@@ -144,4 +148,6 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 		if(mAboutDeveloperFragment != null) return mAboutDeveloperFragment;
 		else return null;
 	}
+	
+	public EwhaTimeTableMyTimeTable getTimeTable(){ return mTimeTable; }
 }
