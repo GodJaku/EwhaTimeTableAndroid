@@ -10,6 +10,7 @@ public class EwhaTimeTableCell {
 	private EwhaResult rawData= null;
 	private int mDay= -1;
 	private int mTime= 0;
+	private String mSpot= null;
 	
 	public EwhaTimeTableCell(){}
 	public EwhaTimeTableCell(EwhaResult data){
@@ -19,10 +20,11 @@ public class EwhaTimeTableCell {
 		mDay= day;
 		mTime= time;
 	}
-	public EwhaTimeTableCell(int day, int time, EwhaResult data){
+	public EwhaTimeTableCell(int day, int time, String spot, EwhaResult data){
 		rawData= data;
 		mDay= day;
 		mTime= time;
+		mSpot= spot;
 	}
 	public EwhaTimeTableCell(String str){
 		parseToObject(str);
@@ -34,6 +36,9 @@ public class EwhaTimeTableCell {
 	public void setTime(int time){
 		mTime= time;
 	}
+	public void setSpot(String spot){
+		mSpot= spot;
+	}
 	
 	public EwhaResult getRawData(){
 		if(rawData != null) return rawData;
@@ -41,6 +46,7 @@ public class EwhaTimeTableCell {
 	}
 	public int getDay(){ return mDay; }
 	public int getTime(){ return mTime; }
+	public String getSpot(){ return mSpot; }
 	
 	public String toString(){
 		if(rawData != null){

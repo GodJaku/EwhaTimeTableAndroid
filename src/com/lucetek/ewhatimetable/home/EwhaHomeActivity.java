@@ -129,6 +129,20 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 		super.onPause();
 	}
 	
+  @Override
+  public void onBackPressed(){
+  	if(System.currentTimeMillis() > backPressedTime + 2000){
+  		backPressedTime= System.currentTimeMillis();
+  		toast= Toast.makeText(getApplicationContext(), getResources().getString(R.string.back_finish), Toast.LENGTH_SHORT);
+  		toast.show();
+  		return ;
+  	}
+  	if(System.currentTimeMillis() <= backPressedTime+2000){
+  		toast.cancel();
+  		super.onBackPressed();
+  	}
+  }
+	
 	public EwhaTimeTableMainFragment getMainFragment(){
 		if(mMainFragment != null) return mMainFragment;
 		else return null;

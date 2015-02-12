@@ -241,6 +241,7 @@ public final class R {
         public static final int isEnglish=0x7f050016;
         public static final int majSpinnerString=0x7f05000d;
         public static final int noresult=0x7f050024;
+        public static final int overlayClass=0x7f05002f;
         public static final int popuptext01=0x7f050017;
         public static final int popuptext02=0x7f050018;
         public static final int popuptext03=0x7f050019;

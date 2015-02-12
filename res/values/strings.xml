@@ -63,4 +63,5 @@
     <string name="gridFragmentTimeText07">"17:00\r\n~\r\n18:15"</string>
     <string name="gridFragmentTimeText08">"18:30\r\n~\r\n19:45"</string>
     
+    <string name="overlayClass">해당 시간에 이미 과목이 등록되어있습니다</string>
 </resources>

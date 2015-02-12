@@ -53,7 +53,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_column="1"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -65,7 +68,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_column="2"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -77,7 +83,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_column="3"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -89,7 +98,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_column="4"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -101,7 +113,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_column="5"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
@@ -112,7 +127,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_column="6"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
         </TableRow>
 
         <View
@@ -144,18 +162,25 @@
                 android:id="@+id/monClass2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#588c73" />
+                android:background="#588c73"
+                android:textColor="#588c73" />
 
             <TextView
                 android:id="@+id/tuesClass2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -166,7 +191,10 @@
                 android:id="@+id/wedClass2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -177,18 +205,25 @@
                 android:id="@+id/thurClass2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#588c73" />
+                android:background="#588c73"
+                android:textColor="#588c73" />
 
             <TextView
                 android:id="@+id/friClass2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             
                         <View
                 android:layout_width="1dp"
@@ -199,7 +234,10 @@
                 android:id="@+id/satClass2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center" 
+                android:textSize="10dp"/>
         </TableRow>
 
         <View
@@ -231,7 +269,10 @@
                 android:id="@+id/monClass3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -242,7 +283,10 @@
                 android:id="@+id/tuesClass3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -253,7 +297,10 @@
                 android:id="@+id/wedClass3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -264,7 +311,10 @@
                 android:id="@+id/thurClass3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -275,7 +325,10 @@
                 android:id="@+id/friClass3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             
                         <View
                 android:layout_width="1dp"
@@ -286,7 +339,10 @@
                 android:id="@+id/satClass3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
         </TableRow>
 
         <View
@@ -318,7 +374,10 @@
                 android:id="@+id/monClass4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -329,7 +388,10 @@
                 android:id="@+id/tuesClass4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -340,7 +402,10 @@
                 android:id="@+id/wedClass4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -351,7 +416,10 @@
                 android:id="@+id/thurClass4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1" 
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp"/>
 
             <View
                 android:layout_width="1dp"
@@ -362,7 +430,10 @@
                 android:id="@+id/friClass4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             
                         <View
                 android:layout_width="1dp"
@@ -373,7 +444,10 @@
                 android:id="@+id/satClass4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
         </TableRow>
 
         <View
@@ -405,7 +479,10 @@
                 android:id="@+id/monClass5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -416,7 +493,10 @@
                 android:id="@+id/tuesClass5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -427,7 +507,10 @@
                 android:id="@+id/wedClass5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -438,7 +521,10 @@
                 android:id="@+id/thurClass5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -449,7 +535,10 @@
                 android:id="@+id/friClass5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             
                         <View
                 android:layout_width="1dp"
@@ -460,7 +549,10 @@
                 android:id="@+id/satClass5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
         </TableRow>
 
         <View
@@ -492,7 +584,10 @@
                 android:id="@+id/monClass6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -503,7 +598,10 @@
                 android:id="@+id/tuesClass6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -514,7 +612,10 @@
                 android:id="@+id/wedClass6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -525,7 +626,10 @@
                 android:id="@+id/thurClass6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -536,7 +640,10 @@
                 android:id="@+id/friClass6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             
                         <View
                 android:layout_width="1dp"
@@ -547,7 +654,10 @@
                 android:id="@+id/satClass6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
         </TableRow>
 
         <View
@@ -579,7 +689,10 @@
                 android:id="@+id/monClass7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -590,7 +703,10 @@
                 android:id="@+id/tuesClass7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -601,7 +717,10 @@
                 android:id="@+id/wedClass7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -612,18 +731,26 @@
                 android:id="@+id/thurClass7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                
+                android:gravity="center" />
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#588c73" />
+                android:background="#588c73"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/friClass7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             
                         <View
                 android:layout_width="1dp"
@@ -634,7 +761,10 @@
                 android:id="@+id/satClass7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center" 
+                android:textSize="10dp"/>
         </TableRow>
 
         <View
@@ -666,7 +796,10 @@
                 android:id="@+id/monClass8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -677,7 +810,10 @@
                 android:id="@+id/tuesClass8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -688,7 +824,10 @@
                 android:id="@+id/wedClass8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -699,7 +838,10 @@
                 android:id="@+id/thurClass8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
 
             <View
                 android:layout_width="1dp"
@@ -710,7 +852,10 @@
                 android:id="@+id/friClass8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
             
                         <View
                 android:layout_width="1dp"
@@ -721,7 +866,10 @@
                 android:id="@+id/satClass8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#588c73"
+                android:gravity="center"
+                android:textSize="10dp" />
         </TableRow>
     </TableLayout>
 

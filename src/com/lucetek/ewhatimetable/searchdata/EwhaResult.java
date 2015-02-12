@@ -63,4 +63,34 @@ public class EwhaResult {
 	public String getKorLecturePlan(){ return korLecturePlan; }
 	public void setEngLecturePlan(String str){ engLecturePlan= str; }
 	public String getEngLecturePlan(){ return engLecturePlan; }
+	
+	public String toString(){
+		String str= "";
+		str=getSubName()+","+getSubNum()+","+getClassNum()+","+getSubKind()+","+getMaj()+","
+				+getGrade()+","+getProf()+","+getGradeValue()+","+getTime()+","+getLecture()+","
+				+getClassName()+","+getIsEng()+","+getStudent()+","+getEtcmsg()+","
+				+getKorLecturePlan()+","+getEngLecturePlan()+",";
+		return str;
+	}
+	public void parseToObject(String str){
+		StringTokenizer token= new StringTokenizer(str, ",");
+		if(token.hasMoreTokens()){
+			setSubName(token.nextToken());
+			setSubNum(token.nextToken());
+			setClassNum(token.nextToken());
+			setSubKind(token.nextToken());
+			setMaj(token.nextToken());
+			setGrade(token.nextToken());
+			setProf(token.nextToken());
+			setGradeValue(token.nextToken());
+			setTime(token.nextToken());
+			setLecture(token.nextToken());
+			setClassName(token.nextToken());
+			setIsEng(token.nextToken());
+			setStudent(token.nextToken());
+			setEtcmsg(token.nextToken());
+			setKorLecturePlan(token.nextToken());
+			setEngLecturePlan(token.nextToken());
+		}
+	}
 }

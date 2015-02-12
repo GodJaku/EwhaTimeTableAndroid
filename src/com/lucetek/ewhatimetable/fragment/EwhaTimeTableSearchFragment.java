@@ -5,18 +5,18 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.StringTokenizer;
 
-import com.lucetek.ewhatimetable.EwhaTimeTableActivity;
 import com.lucetek.ewhatimetable.R;
 import com.lucetek.ewhatimetable.SpinnerAdapter;
+import com.lucetek.ewhatimetable.home.EwhaHomeActivity;
 import com.lucetek.ewhatimetable.home.EwhaHomeInterface;
 import com.lucetek.ewhatimetable.searchdata.EwhaAdapter;
 import com.lucetek.ewhatimetable.searchdata.EwhaParse;
 import com.lucetek.ewhatimetable.searchdata.EwhaResult;
 import com.lucetek.ewhatimetable.searchdata.EwhaServer;
 import com.lucetek.ewhatimetable.searchdata.SearchData;
+import com.lucetek.ewhatimetable.timetabledata.EwhaTimeTableMyTimeTable;
 
 import android.app.Fragment;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -95,7 +95,6 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 	
 	private EwhaServer mServer= null;
 	
-	private ProgressDialog dialog= null;
 	private EwhaParse mParse= null;
 	
 	private SearchData searchData= null;
@@ -104,9 +103,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 	private EwhaAdapter resultContent= null;
 	
 	private InputMethodManager imm= null;
-	
-	// temp
-	private View popup= null;
+	private EwhaTimeTableMyTimeTable mTimeTable= null;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -120,10 +117,15 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 		
 		makeView();
 		makeResource();
+		
+		loadPreferences();
 	}
 	@Override
 	public void onPause(){
 		super.onPause();
+		
+		if(mResult != null && mResult.size() > 0) savePreferences(false);
+		else savePreferences(true);
 	}
 	
 	private void makeView(){
@@ -211,32 +213,6 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	homeInterface= (EwhaHomeInterface)getActivity();
 	}
 	
-	private void viewPopup(String subName, String subNum, String classNum, String subKind, 
-    		String maj, String grade, String prof, String gradeValue, String time, String lecture, String classroom, String isEng, String student, String etcmsg){
-    	final View popup= getActivity().getLayoutInflater().inflate(R.layout.popup_view, null);
-    	mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-    	mPopup.setAnimationStyle(0);
-    	mPopup.setFocusable(true);
-//    	mPopup.setOutsideTouchable(true);
-    	
-    	((TextView)popup.findViewById(R.id.subNamePopup)).setText(subName);
-    	((TextView)popup.findViewById(R.id.profPopup)).setText(prof);
-    	((TextView)popup.findViewById(R.id.subNumPopup)).setText(subNum+"-"+classNum);
-    	((TextView)popup.findViewById(R.id.subKindPopup)).setText(subKind);
-    	((TextView)popup.findViewById(R.id.majorPopup)).setText(maj);
-    	((TextView)popup.findViewById(R.id.gradePopup)).setText(gradeValue + " / " + time);
-    	((TextView)popup.findViewById(R.id.lecturePoup)).setText(lecture);
-    	((TextView)popup.findViewById(R.id.isEnglishPopup)).setText(isEng);
-    	((TextView)popup.findViewById(R.id.studentCountPopup)).setText(student);
-    	((TextView)popup.findViewById(R.id.etcmsgPopup)).setText(etcmsg);
-    	
-    	((TextView)popup.findViewById(R.id.close)).setOnClickListener(click);
-    	((RelativeLayout)popup.findViewById(R.id.popupBackground)).setOnClickListener(click);
-    	
-    	
-    	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
-    }
-	
 	private void viewPopup(EwhaResult selected){
     	View popup= getActivity().getLayoutInflater().inflate(R.layout.popup_view, null);
     	mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
@@ -260,7 +236,9 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if(isChecked){
-					int i;
+					int i, j;
+					boolean isAlready= false, isSame= false;
+					if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 					StringTokenizer token= new StringTokenizer(mSelected.getLecture(), "\n");
 					while(token.hasMoreTokens()){
 						StringTokenizer ins_token= new StringTokenizer(token.nextToken(), "/");
@@ -274,10 +252,22 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 							if(i<dayList.size()-1){
 								StringTokenizer timeTokening= new StringTokenizer(div.nextToken(), "~");
 								int start= Integer.parseInt(timeTokening.nextToken()), end= Integer.parseInt(timeTokening.nextToken());
-								for(int j=start; j<=end; j++){
-									
+								for(j=start; j<=end; j++){
+									if(mTimeTable.getSubject(i-1, j-1).getRawData() != null){
+										String str= mTimeTable.getSubject(i-1, j-1).getRawData().getSubNum()+"-"+mTimeTable.getSubject(i-1, j-1).getRawData().getClassNum();
+										if(!str.equalsIgnoreCase(mSelected.getSubNum()+"-"+mSelected.getClassNum())) buttonView.setChecked(false);
+										else isSame= true;
+										isAlready= true;
+										break;
+									}
 								}
-//									Log.d(getActivity().getClass().toString(), dayList.get(i)+"__"+Integer.toString(j));
+								if(isAlready && !isSame) Toast.makeText(getActivity(), getResources().getString(R.string.overlayClass), Toast.LENGTH_SHORT).show();
+								else if(!isAlready && !isSame){
+									String spot= ins_token.nextToken().replace(" ", "");
+									for(j=start; j<=end; j++){
+										mTimeTable.addSubject(i, j, spot, mSelected);
+									}
+								}
 							}
 						}
 					}
@@ -286,12 +276,42 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 			}
 		});
     	
+    	((CheckBox)popup.findViewById(R.id.addTimeTable)).setChecked(isExisted());
+    	
     	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
     }
 	
+	private boolean isExisted(){
+		if(mSelected != null){
+			int i, j;
+			if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
+			StringTokenizer token= new StringTokenizer(mSelected.getLecture(), "\n");
+			while(token.hasMoreTokens()){
+				StringTokenizer ins_token= new StringTokenizer(token.nextToken(), "/");
+				if(ins_token.hasMoreTokens()){
+					StringTokenizer div= new StringTokenizer(ins_token.nextToken(), " ");
+					String day= div.nextToken();
+					
+					for(i=1; i<dayList.size()-1; i++)
+						if(day.equals(dayList.get(i))) break;
+					if(i<dayList.size()-1){
+						StringTokenizer timeTokening= new StringTokenizer(div.nextToken(), "~");
+						int index= Integer.parseInt(timeTokening.nextToken()); //, end= Integer.parseInt(timeTokening.nextToken());
+						if(mTimeTable.getSubject(i-1, index-1).getRawData() != null){
+							EwhaResult cell=mTimeTable.getSubject(i-1, index-1).getRawData(); 
+							String str= cell.getSubNum()+"-"+cell.getClassNum();
+							if(str.equalsIgnoreCase(mSelected.getSubNum()+"-"+mSelected.getClassNum())) return true;
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
 	View.OnClickListener click= new View.OnClickListener() {
 		public void onClick(View v) {
-			String str= null;
+//			String str= null;
 			int id= v.getId();
 			
 			if(id == R.id.showmenu)
@@ -423,81 +443,66 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	return wholeView;
     }
     
-//    @Override
-//    public void onBackPressed(){
-//    	if(System.currentTimeMillis() > backPressedTime + 2000){
-//    		backPressedTime= System.currentTimeMillis();
-//    		toast= Toast.makeText(getApplicationContext(), getResources().getString(R.string.back_finish), Toast.LENGTH_SHORT);
-//    		toast.show();
-//    		return ;
-//    	}
-//    	if(System.currentTimeMillis() <= backPressedTime+2000){
-//    		toast.cancel();
-//    		isUserFinish= true;
-//    		super.onBackPressed();
-//    	}
-//    }
-    
-//    private void loadPreferences(){
-//		pref= getActivity().getSharedPreferences("saving", getActivity().MODE_PRIVATE);
-//		
-//		int count= pref.getInt("lastCount", 0);
-//		
-//		Log.d(TAG, "count : "+Integer.toString(count));
-//		
-//		if(count > 0){
-//			for(int i=0; i<count; i++){
-//				String str= "lastValue"+Integer.toString(i);
-//				EwhaResult result= new EwhaResult(getActivity());
-//				result.setSubName(pref.getString(str+"subName", ""));
-//				result.setSubNum(pref.getString(str+"subNum", ""));
-//				result.setClassNum(pref.getString(str+"classNum", ""));
-//				result.setSubKind(pref.getString(str+"subKind", ""));
-//				result.setMaj(pref.getString(str+"Major", ""));
-//				result.setGrade(pref.getString(str+"grade", ""));
-//				result.setProf(pref.getString(str+"prof", ""));
-//				result.setTime(pref.getString(str+"time", ""));
-//				result.setLecture(pref.getString(str+"lecture", ""));
-//				result.setClassName(pref.getString(str+"className", ""));
-//				result.setIsEng(pref.getString(str+"isEnglish", ""));
-//				result.setStudent(pref.getString(str+"student", ""));
-//				result.setEtcmsg(pref.getString(str+"etcmsg", ""));
-//				result.setKorLecturePlan(pref.getString(str+"korLecturePlan", ""));
-//				result.setEngLecturePlan(pref.getString(str+"engLecturePlan", ""));
-//				
-//				if(mResult == null) mResult= new ArrayList<EwhaResult>();
-//				mResult.add(result);
-//			}
-//			
-//			mList.setAdapter(new EwhaAdapter(getActivity(), R.layout.listitem, mResult));
-//		}
-//	}
-//	private void savePreferences(boolean dataEmpty){
-//		pref= this.getSharedPreferences("saving", getActivity().MODE_PRIVATE);
-//		SharedPreferences.Editor edit= pref.edit();
-//		if(!dataEmpty && !isUserFinish) {
-//			edit.putInt("lastCount", mResult.size());
-//			for(int i=0; i< mResult.size(); i++){
-//				EwhaResult result= mResult.get(i);
-//				String str= "lastValue"+Integer.toString(i);
-//				edit.putString(str+"subName", result.getSubName());
-//				edit.putString(str+"subNum", result.getSubNum());
-//				edit.putString(str+"classNum", result.getClassNum());
-//				edit.putString(str+"subKind", result.getSubKind());
-//				edit.putString(str+"Major", result.getMaj());
-//				edit.putString(str+"grade", result.getGrade());
-//				edit.putString(str+"prof", result.getProf());
-//				edit.putString(str+"time", result.getTime());
-//				edit.putString(str+"lecture", result.getLecture());
-//				edit.putString(str+"className", result.getClassName());
-//				edit.putString(str+"isEnglish", result.getIsEng());
-//				edit.putString(str+"student", result.getStudent());
-//				edit.putString(str+"etcmsg", result.getEtcmsg());
-//				edit.putString(str+"korLecturePlan", result.getKorLecturePlan());
-//				edit.putString(str+"engLecturePlan", result.getEngLecturePlan());
-//			}
-//		}
-//		else edit.clear();
-//		edit.commit();
-//	}
+    private void loadPreferences(){
+		pref= getActivity().getSharedPreferences("saving", getActivity().MODE_PRIVATE);
+		
+		int count= pref.getInt("lastCount", 0);
+		
+		Log.d(TAG, "count : "+Integer.toString(count));
+		
+		if(count > 0){
+			for(int i=0; i<count; i++){
+				String str= "lastValue"+Integer.toString(i);
+				EwhaResult result= new EwhaResult(getActivity());
+				result.setSubName(pref.getString(str+"subName", ""));
+				result.setSubNum(pref.getString(str+"subNum", ""));
+				result.setClassNum(pref.getString(str+"classNum", ""));
+				result.setSubKind(pref.getString(str+"subKind", ""));
+				result.setMaj(pref.getString(str+"Major", ""));
+				result.setGrade(pref.getString(str+"grade", ""));
+				result.setProf(pref.getString(str+"prof", ""));
+				result.setTime(pref.getString(str+"time", ""));
+				result.setLecture(pref.getString(str+"lecture", ""));
+				result.setClassName(pref.getString(str+"className", ""));
+				result.setIsEng(pref.getString(str+"isEnglish", ""));
+				result.setStudent(pref.getString(str+"student", ""));
+				result.setEtcmsg(pref.getString(str+"etcmsg", ""));
+				result.setKorLecturePlan(pref.getString(str+"korLecturePlan", ""));
+				result.setEngLecturePlan(pref.getString(str+"engLecturePlan", ""));
+				
+				if(mResult == null) mResult= new ArrayList<EwhaResult>();
+				mResult.add(result);
+			}
+			
+			mList.setAdapter(new EwhaAdapter(getActivity(), R.layout.listitem, mResult));
+		}
+	}
+	private void savePreferences(boolean dataEmpty){
+		pref= getActivity().getSharedPreferences("saving", getActivity().MODE_PRIVATE);
+		SharedPreferences.Editor edit= pref.edit();
+		if(!dataEmpty) {
+			edit.putInt("lastCount", mResult.size());
+			for(int i=0; i< mResult.size(); i++){
+				EwhaResult result= mResult.get(i);
+				String str= "lastValue"+Integer.toString(i);
+				edit.putString(str+"subName", result.getSubName());
+				edit.putString(str+"subNum", result.getSubNum());
+				edit.putString(str+"classNum", result.getClassNum());
+				edit.putString(str+"subKind", result.getSubKind());
+				edit.putString(str+"Major", result.getMaj());
+				edit.putString(str+"grade", result.getGrade());
+				edit.putString(str+"prof", result.getProf());
+				edit.putString(str+"time", result.getTime());
+				edit.putString(str+"lecture", result.getLecture());
+				edit.putString(str+"className", result.getClassName());
+				edit.putString(str+"isEnglish", result.getIsEng());
+				edit.putString(str+"student", result.getStudent());
+				edit.putString(str+"etcmsg", result.getEtcmsg());
+				edit.putString(str+"korLecturePlan", result.getKorLecturePlan());
+				edit.putString(str+"engLecturePlan", result.getEngLecturePlan());
+			}
+		}
+		else edit.clear();
+		edit.commit();
+	}
 }
