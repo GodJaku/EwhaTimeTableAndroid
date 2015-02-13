@@ -54,9 +54,10 @@
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -69,9 +70,10 @@
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -84,9 +86,10 @@
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -99,9 +102,10 @@
                 android:layout_height="match_parent"
                 android:layout_column="4"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -114,9 +118,11 @@
                 android:layout_height="match_parent"
                 android:layout_column="5"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
@@ -128,9 +134,10 @@
                 android:layout_height="match_parent"
                 android:layout_column="6"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <View
@@ -163,9 +170,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -178,9 +186,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -192,9 +201,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -206,9 +216,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -221,11 +232,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
-            
-                        <View
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#588c73" />
@@ -235,9 +247,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="#588c73"
-                android:gravity="center" 
-                android:textSize="10dp"/>
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <View
@@ -270,9 +283,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -284,9 +298,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -298,9 +313,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -312,9 +328,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -326,11 +343,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
-            
-                        <View
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#588c73" />
@@ -340,9 +358,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <View
@@ -375,9 +394,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -389,9 +409,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -403,9 +424,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -416,10 +438,11 @@
                 android:id="@+id/thurClass4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" 
-                android:textColor="#588c73"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:textSize="10dp"/>
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -431,11 +454,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
-            
-                        <View
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#588c73" />
@@ -445,9 +469,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <View
@@ -480,9 +505,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -494,9 +520,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -508,9 +535,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -522,9 +550,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -536,11 +565,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
-            
-                        <View
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#588c73" />
@@ -550,9 +580,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <View
@@ -585,9 +616,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -599,9 +631,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -613,9 +646,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -627,9 +661,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -641,11 +676,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
-            
-                        <View
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#588c73" />
@@ -655,9 +691,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <View
@@ -690,9 +727,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -704,9 +742,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -718,9 +757,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -732,10 +772,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="#588c73"
                 android:textSize="10dp"
-                
-                android:gravity="center" />
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -748,11 +788,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
-            
-                        <View
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#588c73" />
@@ -762,9 +803,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="#588c73"
-                android:gravity="center" 
-                android:textSize="10dp"/>
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <View
@@ -797,9 +839,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -811,9 +854,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -825,9 +869,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -839,9 +884,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="1dp"
@@ -853,11 +899,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
-            
-                        <View
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#588c73" />
@@ -867,9 +914,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#588c73"
                 android:gravity="center"
-                android:textSize="10dp" />
+                android:textColor="#588c73"
+                android:textSize="10dp"
+                android:textStyle="bold" />
         </TableRow>
     </TableLayout>
 

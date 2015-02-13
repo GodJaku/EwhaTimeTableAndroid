@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">EwhaTimeTable</string>
+    <string name="action_settings">Settings</string>
     
     <!-- main -->
     <string name="drawer01">메인</string>

@@ -50,26 +50,23 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	
 	private void makeView(){
 		int i;
-		Log.e(getClass().toString(), "make view");
-//		if(dayClass.size() < 6){
-			for(i=0; i<6; i++){
-				dayClass.add(new ArrayList<TextView>());
-				cellClass.add(new ArrayList<EwhaTimeTableCell>());
+		for(i=0; i<6; i++){
+			dayClass.add(new ArrayList<TextView>());
+			cellClass.add(new ArrayList<EwhaTimeTableCell>());
 				
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass1+i)));
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass2+i)));
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass3+i)));
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass4+i)));
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass5+i)));
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass6+i)));
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass7+i)));
-				dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass8+i)));
-				for(int j=0; j<8; j++){
-					dayClass.get(i).get(j).setOnClickListener(click);
-					cellClass.get(i).add(new EwhaTimeTableCell());
-				}
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass1+i)));
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass2+i)));
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass3+i)));
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass4+i)));
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass5+i)));
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass6+i)));
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass7+i)));
+			dayClass.get(i).add(((TextView)wholeView.findViewById(R.id.monClass8+i)));
+			for(int j=0; j<8; j++){
+				dayClass.get(i).get(j).setOnClickListener(click);
+				cellClass.get(i).add(new EwhaTimeTableCell());
 			}
-//		}
+		}
 	}
 	
 	private void makeResource(){
@@ -79,10 +76,12 @@ public class EwhaTimeTableGridFragment extends Fragment {
 			for(int j=0; j<8; j++){
 				EwhaTimeTableCell cell= mTimeTable.getSubject(i, j);
 				if(cell.getRawData() != null){
-					String str= cell.getRawData().getSubName()+"\n"+cell.getSpot();
+					String str= cell.getRawData().getSubName()+"\n"+cell.getRawData().getProf()+"\n"+cell.getSpot();
 					Log.d(getClass().toString(), cell.toString());
 					cellClass.get(i).set(j, cell);
 					dayClass.get(i).get(j).setText(str);
+					if(cellClass.get(i).get(j).getColor() >= 0)
+						dayClass.get(i).get(j).setBackgroundColor(EwhaHomeActivity.mColor.get(cellClass.get(i).get(j).getColor()));
 				}
 			}
 		}

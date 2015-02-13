@@ -126,6 +126,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 		
 		if(mResult != null && mResult.size() > 0) savePreferences(false);
 		else savePreferences(true);
+		mResult.clear();
 	}
 	
 	private void makeView(){
@@ -235,9 +236,11 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	((CheckBox)popup.findViewById(R.id.addTimeTable)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				int i, j;
+				
 				if(isChecked){
-					int i, j;
 					boolean isAlready= false, isSame= false;
+					int color= makeColor();
 					if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 					StringTokenizer token= new StringTokenizer(mSelected.getLecture(), "\n");
 					while(token.hasMoreTokens()){
@@ -264,14 +267,31 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 								if(isAlready && !isSame) Toast.makeText(getActivity(), getResources().getString(R.string.overlayClass), Toast.LENGTH_SHORT).show();
 								else if(!isAlready && !isSame){
 									String spot= ins_token.nextToken().replace(" ", "");
-									for(j=start; j<=end; j++){
-										mTimeTable.addSubject(i, j, spot, mSelected);
-									}
+									for(j=start; j<=end; j++) mTimeTable.addSubject(i, j, color, spot, mSelected);
+									mPopup.dismiss();
 								}
 							}
 						}
 					}
 				} else{
+					
+					StringTokenizer token= new StringTokenizer(mSelected.getLecture(), "\n");
+					while(token.hasMoreTokens()){
+						StringTokenizer ins_token= new StringTokenizer(token.nextToken(), "/");
+						if(ins_token.hasMoreTokens()){
+							StringTokenizer div= new StringTokenizer(ins_token.nextToken(), " ");
+							String day= div.nextToken();
+							
+							for(i=1; i<dayList.size()-1; i++)
+								if(day.equals(dayList.get(i))) break;
+							if(i<dayList.size()-1){
+								StringTokenizer timeTokening= new StringTokenizer(div.nextToken(), "~");
+								int start= Integer.parseInt(timeTokening.nextToken()), end= Integer.parseInt(timeTokening.nextToken());
+								for(j=start; j<=end; j++) mTimeTable.removeSubject(i-1, j-1);
+							}
+						}
+					}
+					
 				}
 			}
 		});
@@ -280,6 +300,18 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	
     	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
     }
+	
+	private int makeColor(){
+		int color= 0;
+		while(color < 48){
+			if(!EwhaHomeActivity.mColorUsed.get(color)){
+				EwhaHomeActivity.mColorUsed.set(color, true);
+				return color;
+			}
+			color++;
+		}
+		return -1;
+	}
 	
 	private boolean isExisted(){
 		if(mSelected != null){
@@ -311,7 +343,6 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 	
 	View.OnClickListener click= new View.OnClickListener() {
 		public void onClick(View v) {
-//			String str= null;
 			int id= v.getId();
 			
 			if(id == R.id.showmenu)
@@ -368,10 +399,6 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	@Override
     	public void onItemClick(AdapterView<?> adapter, View v, int position, long id){
     		if(adapter.getId() == R.id.resultlist){
-//    			EwhaResult temp= mResult.get(position);
-//    			viewPopup(temp.getSubName(), temp.getSubNum(), temp.getClassNum(), temp.getSubKind()
-//    					, temp.getMaj(), temp.getGrade(), temp.getProf(), temp.getGradeValue(), temp.getTime()
-//    					, temp.getLecture(), temp.getClassName(), temp.getIsEng(), temp.getStudent(), temp.getEtcmsg());
     			mSelected= mResult.get(position);
     			viewPopup(mSelected);
     			if(isMenuVisible) hideMenu();
@@ -436,20 +463,14 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	if(resultContent != null) return resultContent;
     	else return null;
     }
-    public ListView getListView(){
-    	return mList;
-    }
-    public View getView(){
-    	return wholeView;
-    }
+    public ListView getListView(){ return mList; }
+    public View getView(){ return wholeView; }
     
     private void loadPreferences(){
 		pref= getActivity().getSharedPreferences("saving", getActivity().MODE_PRIVATE);
 		
 		int count= pref.getInt("lastCount", 0);
-		
-		Log.d(TAG, "count : "+Integer.toString(count));
-		
+//		Log.d(TAG, "count : "+Integer.toString(count));
 		if(count > 0){
 			for(int i=0; i<count; i++){
 				String str= "lastValue"+Integer.toString(i);
