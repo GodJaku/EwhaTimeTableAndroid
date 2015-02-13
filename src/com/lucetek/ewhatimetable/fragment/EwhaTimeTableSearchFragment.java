@@ -240,7 +240,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 				
 				if(isChecked){
 					boolean isAlready= false, isSame= false;
-					int color= makeColor();
+					int color= EwhaHomeActivity.makeColor();
 					if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 					StringTokenizer token= new StringTokenizer(mSelected.getLecture(), "\n");
 					while(token.hasMoreTokens()){
@@ -301,17 +301,17 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
     }
 	
-	private int makeColor(){
-		int color= 0;
-		while(color < 48){
-			if(!EwhaHomeActivity.mColorUsed.get(color)){
-				EwhaHomeActivity.mColorUsed.set(color, true);
-				return color;
-			}
-			color++;
-		}
-		return -1;
-	}
+//	private int makeColor(){
+//		int color= 0;
+//		while(color < 48){
+//			if(!EwhaHomeActivity.mColorUsed.get(color)){
+//				EwhaHomeActivity.mColorUsed.set(color, true);
+//				return color;
+//			}
+//			color++;
+//		}
+//		return -1;
+//	}
 	
 	private boolean isExisted(){
 		if(mSelected != null){

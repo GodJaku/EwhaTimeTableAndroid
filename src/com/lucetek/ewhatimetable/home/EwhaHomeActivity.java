@@ -116,6 +116,18 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
     	else return null;
     }
 	
+    public static int makeColor(){
+		int color= 0;
+		while(color < 48){
+			if(!EwhaHomeActivity.mColorUsed.get(color)){
+				EwhaHomeActivity.mColorUsed.set(color, true);
+				return color;
+			}
+			color++;
+		}
+		return -1;
+	}
+    
 	@Override
 	public void onResume(){
 		super.onResume();

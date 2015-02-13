@@ -49,7 +49,7 @@ public class EwhaTimeTableMyTimeTable {
 	public void addSubject(int day, int time, String spot, EwhaResult data){
 		day--;time--;
 		
-		EwhaTimeTableCell cell= new EwhaTimeTableCell(day, time, makeColor(), spot, data);
+		EwhaTimeTableCell cell= new EwhaTimeTableCell(day, time, EwhaHomeActivity.makeColor(), spot, data);
 		mDays.get(day).set(time, cell);
 	}
 	public void addSubject(int day, int time, int color, String spot, EwhaResult data){
@@ -66,17 +66,5 @@ public class EwhaTimeTableMyTimeTable {
 	
 	public EwhaTimeTableCell getSubject(int day, int time){
 		return mDays.get(day).get(time);
-	}
-	
-	private int makeColor(){
-		int color= 0;
-		while(color < 48){
-			if(!EwhaHomeActivity.mColorUsed.get(color)){
-				EwhaHomeActivity.mColorUsed.set(color, true);
-				return color;
-			}
-			color++;
-		}
-		return -1;
 	}
 }
