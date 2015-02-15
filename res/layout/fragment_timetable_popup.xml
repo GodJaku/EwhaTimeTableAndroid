@@ -56,7 +56,7 @@
                 android:weightSum="2" >
 
                 <Button
-                    android:id="@+id/buttonTablePopupClose"
+                    android:id="@+id/buttonTablePopupAccept"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -65,10 +65,11 @@
                     android:textColor="#ffffff" />
 
                 <Button
-                    android:id="@+id/buttonTablePopupAccept"
+                    android:id="@+id/buttonTablePopupClose"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/but_background"
                     android:text="@string/close"
                     android:textColor="#ffffff" />

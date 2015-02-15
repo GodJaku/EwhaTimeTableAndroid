@@ -46,6 +46,11 @@ public class EwhaTimeTableMyTimeTable {
 		edit.commit();
 	}
 	
+	public void addSubject(int day, int time, EwhaTimeTableCell cell){ mDays.get(day).set(time, cell); }
+	public void addSubject(int day, int time, String spot, String subname, int color){
+		EwhaTimeTableCell cell= new EwhaTimeTableCell(day, time, spot, subname, EwhaHomeActivity.makeColor());
+		mDays.get(day).set(time, cell);
+	}
 	public void addSubject(int day, int time, String spot, EwhaResult data){
 		day--;time--;
 		

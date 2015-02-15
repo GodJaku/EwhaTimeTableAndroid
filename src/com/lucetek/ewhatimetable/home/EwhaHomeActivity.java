@@ -25,6 +25,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterface{
+	public static final int MAIN= 0;
+	public static final int SEARCH= 1;
+	public static final int GRID= 2;
+	public static final int ABOUT_DEVELOPER= 3;
+	
+	
 	private SharedPreferences pref= null;
 
 	private static long backPressedTime= 0;
@@ -62,15 +68,7 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View view, int position, long long_position){
 				frgTransaction= getFragmentManager().beginTransaction();
-				switch(position){
-				case 0: frgTransaction.replace(R.id.container, mMainFragment); break;
-				case 1: frgTransaction.replace(R.id.container, mSearchFragment); break;
-				case 2: frgTransaction.replace(R.id.container, mGridFragment); break;
-				case 3: frgTransaction.replace(R.id.container, mAboutDeveloperFragment); break;
-				}
-				
-				frgTransaction.addToBackStack(null);
-				frgTransaction.commit();
+				moveFragment(position);
 				mDrawer.closeDrawer(mDrawerList);
 			}
 		});
@@ -85,6 +83,18 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 		frgTransaction.commit();
 	}
 	
+	public void moveFragment(int index){
+		frgTransaction= getFragmentManager().beginTransaction();
+		switch(index){
+		case MAIN: frgTransaction.replace(R.id.container, mMainFragment); break;
+		case SEARCH: frgTransaction.replace(R.id.container, mSearchFragment); break;
+		case GRID: frgTransaction.replace(R.id.container, mGridFragment); break;
+		case ABOUT_DEVELOPER: frgTransaction.replace(R.id.container, mMainFragment); break;
+		}
+		frgTransaction.addToBackStack(null);
+		frgTransaction.commit();
+	}
+	
 	private void makeResources(){
 		for(int i=0; i<4; i++) mDrawerItemString.add(getResources().getString(R.string.drawer01+i));
 		mDrawerList.setAdapter(new ArrayAdapter(this, R.layout.draweritem, mDrawerItemString));
@@ -94,15 +104,16 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 		}
 		
 		pref= getSharedPreferences("lucetek", Context.MODE_PRIVATE);
+//		mTimeTable= new EwhaTimeTableMyTimeTable(this, pref);
+		refreshTimeTable();
+	}
+	
+	public void refreshTimeTable(){
+		if(mTimeTable != null) mTimeTable.saveData(pref);
 		mTimeTable= new EwhaTimeTableMyTimeTable(this, pref);
 	}
 	
 	public ProgressDialog makeDialog(){
-//    	ProgressDialog dlg= new ProgressDialog(this);
-//		dlg.setMessage("Loading ...");
-//		dlg.setIndeterminate(false);
-//		dlg.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//		dlg.setCancelable(false);
 		dialog= new ProgressDialog(this);
 		dialog.setMessage("Loading...");
 		dialog.setIndeterminate(false);
@@ -161,17 +172,14 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 		if(mMainFragment != null) return mMainFragment;
 		else return null;
 	}
-	
 	public EwhaTimeTableSearchFragment getSearchFragment(){
 		if(mSearchFragment != null) return mSearchFragment;
 		else return null;
 	}
-	
 	public EwhaTimeTableGridFragment getGridFragment(){
 		if(mGridFragment != null) return mGridFragment;
 		else return null;
 	}
-	
 	public EwhaTimeTableAboutDeveloperFragment getAboutDeveloperFragment(){
 		if(mAboutDeveloperFragment != null) return mAboutDeveloperFragment;
 		else return null;

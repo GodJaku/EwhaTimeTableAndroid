@@ -129,8 +129,8 @@ public final class R {
     public static final class id {
         public static final int addTimeTable=0x7f0800a9;
         public static final int animmator_menu=0x7f080000;
-        public static final int buttonTablePopupAccept=0x7f080060;
-        public static final int buttonTablePopupClose=0x7f08005f;
+        public static final int buttonTablePopupAccept=0x7f08005f;
+        public static final int buttonTablePopupClose=0x7f080060;
         public static final int class1row=0x7f08001c;
         public static final int class1time=0x7f08001d;
         public static final int class2row=0x7f080024;

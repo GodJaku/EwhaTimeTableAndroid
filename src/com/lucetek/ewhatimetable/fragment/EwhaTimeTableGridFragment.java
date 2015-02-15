@@ -42,7 +42,7 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	public void onResume(){
 		super.onResume();
 		
-		Log.e(getClass().toString(), "on resume");
+//		Log.e(getClass().toString(), "on resume");
 		makeView();
 		makeResource();
 	}
@@ -50,7 +50,7 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	@Override
 	public void onPause(){
 		super.onPause();
-		Log.e(getClass().toString(), "on pause");
+//		Log.e(getClass().toString(), "on pause");
 		dayClass.clear();
 		cellClass.clear();
 	}
@@ -77,14 +77,15 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	}
 	
 	private void makeResource(){
-		mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
+		if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 		
 		for(int i=0; i<6; i++){
 			for(int j=0; j<8; j++){
 				EwhaTimeTableCell cell= mTimeTable.getSubject(i, j);
 				if(cell.getRawData() != null){
-					String str= cell.getRawData().getSubName()+"\n"+cell.getRawData().getProf()+"\n"+cell.getSpot();
-					Log.d(getClass().toString(), cell.toString());
+					String str= cell.getSubname()+"\n";
+					str+= (cell.getRawData().getProf() != null ? cell.getRawData().getProf()+"\n" : "")+cell.getSpot();
+//					Log.d(getClass().toString(), cell.toString());
 					cellClass.get(i).set(j, cell);
 					dayClass.get(i).get(j).setText(str);
 					if(cellClass.get(i).get(j).getColor() >= 0)
@@ -92,15 +93,13 @@ public class EwhaTimeTableGridFragment extends Fragment {
 				}
 			}
 		}
-		
-		Log.e(getClass().toString(), Integer.toString(dayClass.size()));
 	}
 	
 	private void makePopup(){
 		popup= getActivity().getLayoutInflater().inflate(R.layout.fragment_timetable_popup, null);
 		mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 		mPopup.setAnimationStyle(0);
-		mPopup.setFocusable(false);
+		mPopup.setFocusable(true);
 		
 		((Button)popup.findViewById(R.id.buttonTablePopupAccept)).setOnClickListener(click);
 		((Button)popup.findViewById(R.id.buttonTablePopupClose)).setOnClickListener(click);
@@ -116,30 +115,39 @@ public class EwhaTimeTableGridFragment extends Fragment {
 				String subject= ((EditText)popup.findViewById(R.id.edittextTablePopupSubname)).getText().toString();
 				String className= ((EditText)popup.findViewById(R.id.edittextTablePopupClass)).getText().toString();
 				
-				if(subject == null || subject.length() <1)
-					Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText04), Toast.LENGTH_SHORT).show();
+				if(subject == null || subject.length() <1) Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText04), Toast.LENGTH_SHORT).show();
 				else{
-					mPopup.dismiss();
+					Log.e(getClass().toString(), "add subject"+Integer.toString(clickedCol)+"__"+Integer.toString(clickedRow));
+					if(className == null || className.length()<1) className= " ";
+					mTimeTable.addSubject(clickedCol, clickedRow, subject, className, EwhaHomeActivity.makeColor());
 				}
+				
+				mPopup.dismiss();
+				((EwhaHomeActivity)getActivity()).refreshTimeTable();
+				makeResource();
 			}
-			else if(id == R.id.relative01timetablePopup || id == R.id.buttonTablePopupClose) mPopup.dismiss();
-			
-			id= ((TextView)v).getId();
-			for(i=0; i<6; i++)
-				for(j=0; j<8; j++){
-					Log.d(getClass().toString(), Integer.toString(id)+"__"+Integer.toString(dayClass.get(i).get(j).getId()));
-					if(id == dayClass.get(i).get(j).getId())
+			else if(id == R.id.relative01timetablePopup || id == R.id.buttonTablePopupClose) {
+				Log.d(getClass().toString(), "close");
+				mPopup.dismiss();
+			}
+			else{
+				for(clickedCol=0; clickedCol<6; clickedCol++){
+					clickedRow= findObjectFromArrayList(dayClass.get(clickedCol), (TextView)v);
+					if(clickedRow != -1)
 						break;
 				}
-			
-			Log.d(getClass().toString(), Integer.toString(i)+"__"+Integer.toString(j));
-			if(i<6 && j<8){
-				if(cellClass.get(i).get(j).getRawData() != null)
-					Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText03), Toast.LENGTH_SHORT).show();
-				else{
-					makePopup();
+				
+				Log.d(getClass().toString(), Integer.toString(clickedCol)+"__"+Integer.toString(clickedRow));
+				if(clickedCol<6 && clickedRow<8){
+					if(cellClass.get(i).get(j).getRawData() != null)
+						Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText03), Toast.LENGTH_SHORT).show();
+					else makePopup();
 				}
 			}
 		}
 	};
+	
+	private int findObjectFromArrayList(ArrayList<TextView> list, TextView v){
+		return list.indexOf(v);
+	}
 }
