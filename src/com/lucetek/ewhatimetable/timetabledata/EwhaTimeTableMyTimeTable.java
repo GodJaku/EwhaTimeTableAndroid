@@ -66,7 +66,12 @@ public class EwhaTimeTableMyTimeTable {
 	public void removeSubject(int day, int time){
 		EwhaHomeActivity.mColorUsed.set(mDays.get(day).get(time).getColor(), false);
 		mDays.get(day).set(time, new EwhaTimeTableCell());
-		
+	}
+	public void replaceSubject(int day, int time, EwhaTimeTableCell cell){
+		mDays.get(day).set(time, cell);
+	}
+	public void modifySubjectGrade(int day, int time, String grade){
+		mDays.get(day).get(time).getRawData().setSelectedGrade(grade);
 	}
 	
 	public EwhaTimeTableCell getSubject(int day, int time){

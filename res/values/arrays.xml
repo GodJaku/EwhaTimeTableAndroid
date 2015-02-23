@@ -399,5 +399,22 @@
         <item>9교시</item>
         <item>10교시</item>
     </string-array>
+    
+    <string-array name="gradelist">
+        <item>A+</item>
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>D-</item>
+        <item>F</item>
+        <item>S</item>
+    </string-array>
 
 </resources>

@@ -400,6 +400,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	public void onItemClick(AdapterView<?> adapter, View v, int position, long id){
     		if(adapter.getId() == R.id.resultlist){
     			mSelected= mResult.get(position);
+    			Log.d("test", mResult.get(position).toString());
     			viewPopup(mSelected);
     			if(isMenuVisible) hideMenu();
     		}

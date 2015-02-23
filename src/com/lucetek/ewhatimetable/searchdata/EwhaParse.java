@@ -43,7 +43,6 @@ public class EwhaParse {
 					Toast.makeText(((EwhaHomeActivity)mContext).getApplicationContext(), ((EwhaHomeActivity)mContext).getResources().getString(R.string.noresult), Toast.LENGTH_SHORT).show();
 				}
 			});
-//			((EwhaHomeActivity)mContext).getSearchFragment().setResult(null);
 		}
 		else{
 			ArrayList<EwhaResult> resultList= ((EwhaHomeActivity)mContext).getSearchFragment().getResult();

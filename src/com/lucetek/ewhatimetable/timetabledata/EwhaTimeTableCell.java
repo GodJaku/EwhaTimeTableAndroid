@@ -67,6 +67,7 @@ public class EwhaTimeTableCell {
 		if(rawData != null) return rawData;
 		else return null;
 	}
+	public int getType(){ return mType; }
 	public int getDay(){ return mDay; }
 	public int getTime(){ return mTime; }
 	public String getSubname(){ return mSubname; }

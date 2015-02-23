@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="samplecolor">#ffffff</color>
-    <color name="cellColor01">#FFCDD2</color>
+    <color name="samplecolor">#88EEEEEE</color>
+    <color name="cellColor01">#DDFFD7</color>
     <color name="cellColor02">#FAFFBD</color>
-    <color name="cellColor03">#FFCDD2</color>
-    <color name="cellColor04">#ECAB80</color>
-    <color name="cellColor05">#F8BBD0</color>
-    <color name="cellColor06">#AEE57A</color>
-    <color name="cellColor07">#E1BEE7</color>
+    <color name="cellColor03">#C5CAE9</color>
+    <color name="cellColor04">#FCDBB0</color>
+    <color name="cellColor05">#F8CCDF</color>
+    <color name="cellColor06">#BEF5AA</color>
+    <color name="cellColor07">#BBDEFB</color>
     <color name="cellColor08">#B1D696</color>
     <color name="cellColor09">#D1C4E9</color>
     <color name="cellColor10">#F8F989</color>
-    <color name="cellColor11">#C5CAE9</color>
-    <color name="cellColor12">#C9DF8A</color>
-    <color name="cellColor13">#BBDEFB</color>
-    <color name="cellColor14">#FAEFDE</color>
-    <color name="cellColor15">#B3E5FC</color>
-    <color name="cellColor16">#8DEB71</color>
+    <color name="cellColor11">#FAEFDE</color>
+    <color name="cellColor12">#E9FFAA</color>
+    <color name="cellColor13">#DCE775</color>
+    <color name="cellColor14">#B0BEC5</color>
+    <color name="cellColor15">#D7CCC8</color>
+    <color name="cellColor16">#9FEB81</color>
     <color name="cellColor17">#B2EBF2</color>
     <color name="cellColor18">#F9FBA6</color>
     <color name="cellColor19">#B2DFDB</color>

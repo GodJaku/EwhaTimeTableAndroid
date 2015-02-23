@@ -30,7 +30,7 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	
 	private View wholeView, popup;
 	private PopupWindow mPopup= null;
-	private int clickedRow, clickedCol;
+	private int clickedTime, clickedDay;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -75,7 +75,8 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	}
 	
 	private void makeResource(){
-		if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
+//		if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
+		mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 		
 		String str= "";
 		for(int i=0; i<6; i++){
@@ -88,14 +89,20 @@ public class EwhaTimeTableGridFragment extends Fragment {
 					else str= cell.getSubname()+"\n"+cell.getSpot();
 					cellClass.get(i).set(j, cell);
 					dayClass.get(i).get(j).setText(str);
-					if(cellClass.get(i).get(j).getColor() >= 0)
+					if(cellClass.get(i).get(j).getColor() >= 0){
 						dayClass.get(i).get(j).setBackgroundColor(EwhaHomeActivity.mColor.get(cellClass.get(i).get(j).getColor()));
+						EwhaHomeActivity.mColorUsed.set(cellClass.get(i).get(j).getColor(), true);
+					}
+				} else {
+					cellClass.get(i).set(j, new EwhaTimeTableCell());
+					dayClass.get(i).get(j).setText("");
+					dayClass.get(i).get(j).setBackgroundColor(getActivity().getResources().getColor(R.color.samplecolor));
 				}
 			}
 		}
 	}
 	
-	private void makePopup(){
+	private void makeAddPopup(){
 		popup= getActivity().getLayoutInflater().inflate(R.layout.fragment_timetable_popup, null);
 		mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 		mPopup.setAnimationStyle(0);
@@ -103,6 +110,17 @@ public class EwhaTimeTableGridFragment extends Fragment {
 		
 		((Button)popup.findViewById(R.id.buttonTablePopupAccept)).setOnClickListener(click);
 		((Button)popup.findViewById(R.id.buttonTablePopupClose)).setOnClickListener(click);
+		mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
+	}
+	
+	private void makeDeletePopup(){
+		popup= getActivity().getLayoutInflater().inflate(R.layout.fragment_timetable_delete_popup, null);
+		mPopup= new PopupWindow(popup, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+		mPopup.setAnimationStyle(0);
+		mPopup.setFocusable(true);
+		
+		((Button)popup.findViewById(R.id.buttonTableDeletePopupClose)).setOnClickListener(click);
+		((Button)popup.findViewById(R.id.buttonTableDeletePopupDelete)).setOnClickListener(click);
 		mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
 	}
 	
@@ -117,29 +135,45 @@ public class EwhaTimeTableGridFragment extends Fragment {
 				
 				if(subject == null || subject.length() <1) Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText04), Toast.LENGTH_SHORT).show();
 				else{
-					Log.e(getClass().toString(), "add subject"+Integer.toString(clickedCol)+"__"+Integer.toString(clickedRow));
+//					Log.e(getClass().toString(), "add subject"+Integer.toString(clickedDay)+"__"+Integer.toString(clickedTime));
 					if(className == null || className.length()<1) className= " ";
-					mTimeTable.addSubject(clickedCol, clickedRow, subject, className, EwhaHomeActivity.makeColor());
+					mTimeTable.addSubject(clickedDay, clickedTime, subject, className, EwhaHomeActivity.makeColor());
 				}
 				
 				mPopup.dismiss();
 				((EwhaHomeActivity)getActivity()).refreshTimeTable();
 				makeResource();
 			}
-			else if(id == R.id.relative01timetablePopup || id == R.id.buttonTablePopupClose) mPopup.dismiss();
+			else if(id == R.id.buttonTableDeletePopupDelete){
+				EwhaTimeTableCell cell= cellClass.get(clickedDay).get(clickedTime);
+				if(cell.getType() == 0){
+					for(i=0; i<6; i++){
+						for(j=0; j<8; j++)
+							if((i != clickedDay && j != clickedTime) && cellClass.get(i).get(j).getRawData() != null)
+								if(cell.getRawData().toString().equalsIgnoreCase(cellClass.get(i).get(j).getRawData().toString()))
+									mTimeTable.removeSubject(i, j);
+					}	
+				}
+				mTimeTable.removeSubject(clickedDay, clickedTime);
+				
+				mPopup.dismiss();
+				((EwhaHomeActivity)getActivity()).refreshTimeTable();
+				makeResource();
+			}
+			else if(id == R.id.relative01timetablePopup || id == R.id.buttonTablePopupClose
+					|| id == R.id.relative01timetableDeletePopup || id == R.id.buttonTableDeletePopupClose) mPopup.dismiss();
 			else{
-				for(clickedCol=0; clickedCol<6; clickedCol++){
-					clickedRow= findObjectFromArrayList(dayClass.get(clickedCol), (TextView)v);
-					if(clickedRow != -1)
+				for(clickedDay=0; clickedDay<6; clickedDay++){
+					clickedTime= findObjectFromArrayList(dayClass.get(clickedDay), (TextView)v);
+					if(clickedTime != -1)
 						break;
 				}
-				
-				Log.d(getClass().toString(), Integer.toString(clickedCol)+"__"+Integer.toString(clickedRow));
-				if(clickedCol<6 && clickedRow<8){
-					String str=cellClass.get(clickedCol).get(clickedRow).getSubname();
-					Log.d("test", str == null ? "null" : str);
-					if(str == null || str.length()<1) makePopup();
-					else Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText03), Toast.LENGTH_SHORT).show();
+				if(clickedDay<6 && clickedTime<8){
+					EwhaTimeTableCell cell= cellClass.get(clickedDay).get(clickedTime);
+//					String str=cellClass.get(clickedDay).get(clickedTime).getSubname();
+					String str= cell.getSubname();
+					if(str == null || str.length()<1) makeAddPopup();
+					else makeDeletePopup(); //Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText03), Toast.LENGTH_SHORT).show();
 				}
 			}
 		}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative01calculatorList"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    
+    <Spinner
+        android:id="@+id/spinnerCalculatorList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
+    
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/spinnerCalculatorList"
+        android:layout_alignBottom="@+id/spinnerCalculateList"
+        android:layout_alignLeft="@+id/spinnerCalculateList"
+        android:background="#588c73" />
+    
+    <TextView
+        android:id="@+id/textviewCalculatorListGrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/spinnerCalculatorList"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:textColor="#588c73"/>
+    
+    <TextView
+        android:id="@+id/textviewCalculatorListSubname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/textviewCalculatorListGrade"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:textColor="#588c73"
+        android:textStyle="bold"/>
+    
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/spinnerCalculatorList"
+        android:layout_alignBottom="@+id/spinnerCalculateList"
+        android:layout_alignRight="@+id/textviewCalculatorListSubname"
+        android:background="#588c73"/>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#588c73"/>
+        
+
+</RelativeLayout>
