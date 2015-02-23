@@ -42,7 +42,6 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	public void onResume(){
 		super.onResume();
 		
-//		Log.e(getClass().toString(), "on resume");
 		makeView();
 		makeResource();
 	}
@@ -50,7 +49,6 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	@Override
 	public void onPause(){
 		super.onPause();
-//		Log.e(getClass().toString(), "on pause");
 		dayClass.clear();
 		cellClass.clear();
 	}
@@ -79,13 +77,15 @@ public class EwhaTimeTableGridFragment extends Fragment {
 	private void makeResource(){
 		if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 		
+		String str= "";
 		for(int i=0; i<6; i++){
 			for(int j=0; j<8; j++){
 				EwhaTimeTableCell cell= mTimeTable.getSubject(i, j);
-				if(cell.getRawData() != null){
-					String str= cell.getSubname()+"\n";
-					str+= (cell.getRawData().getProf() != null ? cell.getRawData().getProf()+"\n" : "")+cell.getSpot();
-//					Log.d(getClass().toString(), cell.toString());
+				if(cell.getSubname() != null && cell.getSubname().length()>0){
+					str= "";
+					if(cell.getRawData() != null)
+						str+= cell.getSubname()+"\n"+(cell.getRawData().getProf() != null ? cell.getRawData().getProf()+"\n" : "")+cell.getSpot();
+					else str= cell.getSubname()+"\n"+cell.getSpot();
 					cellClass.get(i).set(j, cell);
 					dayClass.get(i).get(j).setText(str);
 					if(cellClass.get(i).get(j).getColor() >= 0)
@@ -126,10 +126,7 @@ public class EwhaTimeTableGridFragment extends Fragment {
 				((EwhaHomeActivity)getActivity()).refreshTimeTable();
 				makeResource();
 			}
-			else if(id == R.id.relative01timetablePopup || id == R.id.buttonTablePopupClose) {
-				Log.d(getClass().toString(), "close");
-				mPopup.dismiss();
-			}
+			else if(id == R.id.relative01timetablePopup || id == R.id.buttonTablePopupClose) mPopup.dismiss();
 			else{
 				for(clickedCol=0; clickedCol<6; clickedCol++){
 					clickedRow= findObjectFromArrayList(dayClass.get(clickedCol), (TextView)v);
@@ -139,9 +136,10 @@ public class EwhaTimeTableGridFragment extends Fragment {
 				
 				Log.d(getClass().toString(), Integer.toString(clickedCol)+"__"+Integer.toString(clickedRow));
 				if(clickedCol<6 && clickedRow<8){
-					if(cellClass.get(i).get(j).getRawData() != null)
-						Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText03), Toast.LENGTH_SHORT).show();
-					else makePopup();
+					String str=cellClass.get(clickedCol).get(clickedRow).getSubname();
+					Log.d("test", str == null ? "null" : str);
+					if(str == null || str.length()<1) makePopup();
+					else Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText03), Toast.LENGTH_SHORT).show();
 				}
 			}
 		}
