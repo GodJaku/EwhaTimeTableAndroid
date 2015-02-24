@@ -97,6 +97,7 @@ public class EwhaTimeTableCell {
 		}
 		else return null;
 	}
+	//
 	public void parseToObject(String str){
 		StringTokenizer token= new StringTokenizer(str, ",");
 		try{
