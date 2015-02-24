@@ -25,7 +25,7 @@ public class EwhaResult {
 	private String korLecturePlan= null;		// 국문강의계획서
 	private String engLecturePlan= null;		// 영문강의계획서
 	
-	private String selectedGrade= "";
+	private int selectedGrade= -1;
 	
 	public EwhaResult(){}
 	public EwhaResult(Context context){ mContext= context; }
@@ -65,15 +65,15 @@ public class EwhaResult {
 	public String getKorLecturePlan(){ return korLecturePlan; }
 	public void setEngLecturePlan(String str){ engLecturePlan= str; }
 	public String getEngLecturePlan(){ return engLecturePlan; }
-	public void setSelectedGrade(String index){ selectedGrade= index; }
-	public String getSelectedGrade(){ return selectedGrade; }
+	public void setSelectedGrade(int index){ selectedGrade= index; }
+	public int getSelectedGrade(){ return selectedGrade; }
 	
 	public String toString(){
 		String str= "";
 		str=getSubName()+","+getSubNum()+","+getClassNum()+","+getSubKind()+","+getMaj()+","
 				+getGrade()+","+getProf()+","+getGradeValue()+","+getTime()+","+getLecture()+","
 				+getClassName()+","+getIsEng()+","+getStudent()+","+getEtcmsg()+","
-				+getKorLecturePlan()+","+getEngLecturePlan()+","+getSelectedGrade();
+				+getKorLecturePlan()+","+getEngLecturePlan(); //+","+getSelectedGrade();
 		return str;
 	}
 	public void parseToObject(String str){
@@ -95,7 +95,7 @@ public class EwhaResult {
 			setEtcmsg(token.nextToken());
 			setKorLecturePlan(token.nextToken());
 			setEngLecturePlan(token.nextToken());
-			setSelectedGrade(token.nextToken());
+//			setSelectedGrade(token.nextToken());
 		}
 	}
 }

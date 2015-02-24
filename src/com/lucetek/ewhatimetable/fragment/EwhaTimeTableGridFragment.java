@@ -8,6 +8,7 @@ import com.lucetek.ewhatimetable.timetabledata.EwhaTimeTableCell;
 import com.lucetek.ewhatimetable.timetabledata.EwhaTimeTableMyTimeTable;
 
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -16,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -23,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EwhaTimeTableGridFragment extends Fragment {
+	private boolean tutorialHidden= false;
 	
 	private EwhaTimeTableMyTimeTable mTimeTable= null;
 	private static ArrayList<ArrayList<TextView>> dayClass= new ArrayList<ArrayList<TextView>>();
@@ -51,6 +55,10 @@ public class EwhaTimeTableGridFragment extends Fragment {
 		super.onPause();
 		dayClass.clear();
 		cellClass.clear();
+		
+		SharedPreferences.Editor edit= ((EwhaHomeActivity)getActivity()).getPref().edit();
+		edit.putBoolean("gridTutorialHidden", tutorialHidden);
+		edit.commit();
 	}
 	
 	private void makeView(){
@@ -72,10 +80,20 @@ public class EwhaTimeTableGridFragment extends Fragment {
 				cellClass.get(i).add(new EwhaTimeTableCell());
 			}
 		}
+		
+		((CheckBox)wholeView.findViewById(R.id.tutorial03HiddenForever)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+				if(arg1){
+					tutorialHidden= true;
+					((RelativeLayout)wholeView.findViewById(R.id.gridFragmentTutorial)).setVisibility(View.INVISIBLE);
+				}
+			}
+		});
+		((RelativeLayout)wholeView.findViewById(R.id.tutorial03HiddenOnce)).setOnClickListener(click);
 	}
 	
 	private void makeResource(){
-//		if(mTimeTable == null) mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 		mTimeTable= ((EwhaHomeActivity)getActivity()).getTimeTable();
 		
 		String str= "";
@@ -100,6 +118,9 @@ public class EwhaTimeTableGridFragment extends Fragment {
 				}
 			}
 		}
+		
+		tutorialHidden= ((EwhaHomeActivity)getActivity()).getPref().getBoolean("gridTutorialHidden", false); 
+		if(tutorialHidden) ((RelativeLayout)wholeView.findViewById(R.id.gridFragmentTutorial)).setVisibility(View.INVISIBLE);
 	}
 	
 	private void makeAddPopup(){
@@ -129,13 +150,13 @@ public class EwhaTimeTableGridFragment extends Fragment {
 		public void onClick(View v) {
 			int i=0, j=0, id= v.getId();
 			
-			if(id == R.id.buttonTablePopupAccept){
+			if(id == R.id.tutorial03HiddenOnce) ((RelativeLayout)wholeView.findViewById(R.id.gridFragmentTutorial)).setVisibility(View.INVISIBLE);
+			else if(id == R.id.buttonTablePopupAccept){
 				String subject= ((EditText)popup.findViewById(R.id.edittextTablePopupSubname)).getText().toString();
 				String className= ((EditText)popup.findViewById(R.id.edittextTablePopupClass)).getText().toString();
 				
 				if(subject == null || subject.length() <1) Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.gridFragmentPopupText04), Toast.LENGTH_SHORT).show();
 				else{
-//					Log.e(getClass().toString(), "add subject"+Integer.toString(clickedDay)+"__"+Integer.toString(clickedTime));
 					if(className == null || className.length()<1) className= " ";
 					mTimeTable.addSubject(clickedDay, clickedTime, subject, className, EwhaHomeActivity.makeColor());
 				}

@@ -16,7 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -47,23 +46,7 @@ public class EwhaTimeTableCalculatorFragment extends Fragment{
 	@Override
 	public void onPause(){
 		super.onPause();
-		finishCalculator();
-		((EwhaHomeActivity)getActivity()).saveTimeTable();
 		mContent.clear();
-	}
-	
-	private void finishCalculator(){
-		EwhaTimeTableMyTimeTable temp= ((EwhaHomeActivity)getActivity()).getTimeTable();
-		for(int k=0; k<mContent.size(); k++){
-			String str= mContent.get(k).getSubName()+mContent.get(k).getSubNum();
-			for(int i=0; i<6; i++){
-				for(int j=0; j<8; j++){
-					Log.d("test", temp.getSubject(i, j).getRawData().toString());
-					String tempstr= temp.getSubject(i, j).getRawData().getSubName()+temp.getSubject(i, j).getRawData().getSubNum();
-					if(tempstr.equals(str)) temp.modifySubjectGrade(i, j, mContent.get(k).getSelectedGrade());
-				}
-			}
-		}
 	}
 	
 	private void makeView(){
@@ -101,7 +84,7 @@ public class EwhaTimeTableCalculatorFragment extends Fragment{
 			if(id == R.id.buttonCalculate){
 				double result= 0.0, timetotal= 0.0;
 				for(i=0; i<mContent.size(); i++){
-					result += gradeArray[Integer.parseInt(mContent.get(i).getSelectedGrade())] * Double.parseDouble(mAdapter.getItem(i).getGradeValue());
+					result += gradeArray[mContent.get(i).getSelectedGrade()] * Double.parseDouble(mAdapter.getItem(i).getGradeValue());
 					timetotal += Double.parseDouble(mAdapter.getItem(i).getGradeValue());
 				}
 				result /= timetotal;

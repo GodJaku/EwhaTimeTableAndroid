@@ -12,10 +12,8 @@ import android.widget.TextView;
 import com.lucetek.ewhatimetable.R;
 
 public class EwhaTimeTableGradeAdapter extends ArrayAdapter<String>{
-
 	private Context mContext= null;
 	private ArrayList<String> content= null;
-//	private TextView contentText= null;
 	
 	public EwhaTimeTableGradeAdapter(Context context, int resId, ArrayList<String> obj){
 		super(context, resId, obj);

@@ -48,7 +48,7 @@ public class EwhaTimeTableMyTimeTable {
 	
 	public void addSubject(int day, int time, EwhaTimeTableCell cell){ mDays.get(day).set(time, cell); }
 	public void addSubject(int day, int time, String spot, String subname, int color){
-		EwhaTimeTableCell cell= new EwhaTimeTableCell(day, time, spot, subname, EwhaHomeActivity.makeColor());
+		EwhaTimeTableCell cell= new EwhaTimeTableCell(day, time, spot, subname, color);
 		mDays.get(day).set(time, cell);
 	}
 	public void addSubject(int day, int time, String spot, EwhaResult data){
@@ -69,9 +69,6 @@ public class EwhaTimeTableMyTimeTable {
 	}
 	public void replaceSubject(int day, int time, EwhaTimeTableCell cell){
 		mDays.get(day).set(time, cell);
-	}
-	public void modifySubjectGrade(int day, int time, String grade){
-		mDays.get(day).get(time).getRawData().setSelectedGrade(grade);
 	}
 	
 	public EwhaTimeTableCell getSubject(int day, int time){

@@ -8,12 +8,18 @@
     <string name="delete">삭제</string>
     <string name="close">닫기</string>
     
-    <!-- main -->
+    <!-- home -->
     <string name="drawer01">메인</string>
     <string name="drawer02">강의 검색</string>
-    <string name="drawer03">시간표 보기</string>
+    <string name="drawer03">시간표 관리</string>
     <string name="drawer04">학점 계산기</string>
     <string name="drawer05">개발자 정보</string>
+    
+    <!-- main fragment -->
+    <string name="mainFragmentText01">시간표 보기</string>
+    <string name="mainFragmentText02">시간표 수정은 =시간표관리=메뉴에서 가능합니다.</string>
+    
+    <string name="mainFragmentTutorialText">다시보지않기</string>
     
 	<!-- search mode -->
     <string name="viewtable">시간표검색</string>
@@ -58,7 +64,7 @@
     
     <!-- timetable mode -->
     
-    <string name="gridFragmentText01">시간표 보기</string>
+    <string name="gridFragmentText01">시간표 관리</string>
     
     <string name="gridFragmentTimeText01">"08:00\r\n~\r\n09:15"</string>
     <string name="gridFragmentTimeText02">"09:30\r\n~\r\n10:45"</string>

@@ -62,10 +62,9 @@ public class EwhaTimeTableCalculatorAdapter extends ArrayAdapter<EwhaResult> {
 		((TextView)v.findViewById(R.id.textviewCalculatorListGrade)).setText(content.get(position).getGradeValue());
 		gradeSpinner= ((Spinner)v.findViewById(R.id.spinnerCalculatorList));
 		gradeSpinner.setAdapter(new EwhaTimeTableGradeAdapter((EwhaHomeActivity)mContext, R.layout.grade_listitem, R.id.textviewCalCulatorGradeList, grade));
-		if(content.get(position).getSelectedGrade().length() > 0) gradeSpinner.setSelection(Integer.parseInt(content.get(position).getSelectedGrade()));
 		gradeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
-	    	public void onItemSelected(AdapterView<?> adapter, View view, int pos, long id){ content.get(position).setSelectedGrade(Integer.toString(pos)); }
+	    	public void onItemSelected(AdapterView<?> adapter, View view, int pos, long id){ content.get(position).setSelectedGrade(pos); }
 			@Override public void onNothingSelected(AdapterView<?> adapter){}
 		});
 		return v;

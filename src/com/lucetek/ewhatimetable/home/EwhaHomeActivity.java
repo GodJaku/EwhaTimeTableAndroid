@@ -18,6 +18,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -31,7 +32,6 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 	public static final int GRID= 2;
 	public static final int CALC= 3;
 	public static final int ABOUT_DEVELOPER= 4;
-	
 	
 	private SharedPreferences pref= null;
 
@@ -195,5 +195,5 @@ public class EwhaHomeActivity extends FragmentActivity implements EwhaHomeInterf
 	
 	public EwhaTimeTableMyTimeTable getTimeTable(){ return mTimeTable; }
 	public ArrayList<Integer> getColors(){ return mColor; }
-	
+	public SharedPreferences getPref(){ return pref; }
 }

@@ -30,13 +30,6 @@ public class EwhaTimeTableCell {
 		mSpot= spot;
 		mColor= color;
 	}
-//	public EwhaTimeTableCell(int day, int time, String spot, EwhaResult data){
-//		mType= SEARCHED;
-//		rawData= data;
-//		mDay= day;
-//		mTime= time;
-//		mSpot= spot;
-//	}
 	public EwhaTimeTableCell(int day, int time, int color, String spot, EwhaResult data){
 		mType= SEARCHED;
 		rawData= data;
@@ -106,9 +99,7 @@ public class EwhaTimeTableCell {
 	}
 	public void parseToObject(String str){
 		StringTokenizer token= new StringTokenizer(str, ",");
-		Log.e(getClass().toString(), str);
 		try{
-			Log.d("Cell_parseToObject", str);
 			if(token.hasMoreTokens()){
 				mType= Integer.parseInt(token.nextToken());
 				mDay= Integer.parseInt(token.nextToken());
@@ -141,9 +132,4 @@ public class EwhaTimeTableCell {
 			e.printStackTrace();
 		}
 	}
-	
-//	private String validateCheck(String str){
-//		if(str == null || str.equalsIgnoreCase("null") || str.length() < 1) return null;
-//		else return str;
-//	}
 }

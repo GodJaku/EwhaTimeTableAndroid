@@ -43,6 +43,7 @@ import android.widget.ViewAnimator;
 import android.widget.AbsListView.OnScrollListener;
 
 public class EwhaTimeTableSearchFragment extends Fragment {
+	private boolean tutorialHidden= false;
 	private EwhaHomeInterface homeInterface= null;
 	
 	private static final String TAG= "EwhaTimeTable";
@@ -124,9 +125,15 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 	public void onPause(){
 		super.onPause();
 		
-		if(mResult != null && mResult.size() > 0) savePreferences(false);
+		if(mResult != null && mResult.size() > 0){
+			savePreferences(false);
+			mResult.clear();
+		}
 		else savePreferences(true);
-		mResult.clear();
+		
+		SharedPreferences.Editor edit= ((EwhaHomeActivity)getActivity()).getPref().edit();
+		edit.putBoolean("searchTutorialHidden", tutorialHidden);
+		edit.commit();
 	}
 	
 	private void makeView(){
@@ -165,6 +172,15 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     			if(isMenuVisible) hideMenu();
     		}
     	});
+    	
+    	((RelativeLayout)wholeView.findViewById(R.id.tutorial02HiddenOnce)).setOnClickListener(click);
+    	((CheckBox)wholeView.findViewById(R.id.tutorial02HiddenForever)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				tutorialHidden= true;
+				((RelativeLayout)wholeView.findViewById(R.id.searchFragmentTutorial)).setVisibility(View.INVISIBLE);
+			}
+		});//.setOnClickListener(click);
     	
     	imm= (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
     	mParse= new EwhaParse(getActivity());
@@ -212,6 +228,9 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	mServer= new EwhaServer(getActivity());
     	
     	homeInterface= (EwhaHomeInterface)getActivity();
+    	
+    	tutorialHidden= ((EwhaHomeActivity)getActivity()).getPref().getBoolean("searchTutorialHidden", false); 
+    	if(tutorialHidden) ((RelativeLayout)wholeView.findViewById(R.id.searchFragmentTutorial)).setVisibility(View.INVISIBLE);
 	}
 	
 	private void viewPopup(EwhaResult selected){
@@ -301,18 +320,6 @@ public class EwhaTimeTableSearchFragment extends Fragment {
     	mPopup.showAtLocation(popup, Gravity.CENTER, 0, 0);
     }
 	
-//	private int makeColor(){
-//		int color= 0;
-//		while(color < 48){
-//			if(!EwhaHomeActivity.mColorUsed.get(color)){
-//				EwhaHomeActivity.mColorUsed.set(color, true);
-//				return color;
-//			}
-//			color++;
-//		}
-//		return -1;
-//	}
-	
 	private boolean isExisted(){
 		if(mSelected != null){
 			int i, j;
@@ -345,7 +352,8 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 		public void onClick(View v) {
 			int id= v.getId();
 			
-			if(id == R.id.showmenu)
+			if(id == R.id.tutorial02HiddenOnce) ((RelativeLayout)wholeView.findViewById(R.id.searchFragmentTutorial)).setVisibility(View.INVISIBLE);
+			else if(id == R.id.showmenu)
 				showMenu();
 			else if(id != R.id.animmator_menu && id != R.id.relative_menu){
 				if(id == R.id.search){
@@ -471,7 +479,6 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 		pref= getActivity().getSharedPreferences("saving", getActivity().MODE_PRIVATE);
 		
 		int count= pref.getInt("lastCount", 0);
-//		Log.d(TAG, "count : "+Integer.toString(count));
 		if(count > 0){
 			for(int i=0; i<count; i++){
 				String str= "lastValue"+Integer.toString(i);
@@ -483,6 +490,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 				result.setMaj(pref.getString(str+"Major", ""));
 				result.setGrade(pref.getString(str+"grade", ""));
 				result.setProf(pref.getString(str+"prof", ""));
+				result.setGradeValue(pref.getString(str+"gradeValue", ""));
 				result.setTime(pref.getString(str+"time", ""));
 				result.setLecture(pref.getString(str+"lecture", ""));
 				result.setClassName(pref.getString(str+"className", ""));
@@ -514,6 +522,7 @@ public class EwhaTimeTableSearchFragment extends Fragment {
 				edit.putString(str+"Major", result.getMaj());
 				edit.putString(str+"grade", result.getGrade());
 				edit.putString(str+"prof", result.getProf());
+				edit.putString(str+"gradeValue", result.getGradeValue());
 				edit.putString(str+"time", result.getTime());
 				edit.putString(str+"lecture", result.getLecture());
 				edit.putString(str+"className", result.getClassName());

@@ -189,5 +189,45 @@
             android:layout_centerHorizontal="true"
             android:divider="#454545"/>
     <!-- </ScrollView> -->
+    
+    <RelativeLayout
+        android:id="@+id/searchFragmentTutorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/tutorial02" >
+        
+        <RelativeLayout
+            android:id="@+id/tutorial02HiddenOnce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textSize="20dp"
+                android:textColor="#88ffffff"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+        
+        <CheckBox
+            android:id="@+id/tutorial02HiddenForever"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/mainFragmentTutorialText"
+            android:textColor="#88ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
 
 </RelativeLayout>
