@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp" >
+
+    <View
+        android:id="@+id/vertical_halfline"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:id="@+id/horizontal_halfline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/developerProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/vertical_halfline"
+        android:adjustViewBounds="true"
+        android:gravity="top"
+        android:scaleType="fitStart" />
+
+</RelativeLayout><!-- From: file:/Users/noirCynical/LuceteK/Project/EwhaTimeTable/res/layout/fragment_aboutdeveloper.xml -->

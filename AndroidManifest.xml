@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lucetek.ewhatimetable"
-    android:versionCode="2"
+    package="com.rgb0101.ewhatimetable"
+    android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="18" />
@@ -12,17 +12,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <!-- <activity
-            android:name="com.lucetek.ewhatimetable.EwhaTimeTableActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> -->
         <activity
-            android:name="com.lucetek.ewhatimetable.home.EwhaHomeActivity"
+            android:name="com.rgb0101.ewhatimetable.home.EwhaHomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>

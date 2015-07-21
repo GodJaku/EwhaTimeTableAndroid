@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/noirCynical/LuceteK/Project/EwhaTimeTable/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="days">
+        <item>전체</item>
+        <item>월</item>
+        <item>화</item>
+        <item>수</item>
+        <item>목</item>
+        <item>금</item>
+        <item>토</item>
+        <item>일</item>
+    </string-array>
+    <string-array name="grade">
+        <item>전체</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="gradelist">
+        <item>A+</item>
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>D-</item>
+        <item>F</item>
+        <item>S</item>
+    </string-array>
+    <string-array name="subjectdiv">
+        <item>전체</item>
+        <item>비사대교직</item>
+        <item>전공선택(교직)</item>
+        <item>대학기초</item>
+        <item>전공기초</item>
+        <item>전공</item>
+        <item>연계전공</item>
+        <item>학점교환</item>
+        <item>교양선택</item>
+        <item>기초교양</item>
+        <item>핵심교양(문학과언어)</item>
+        <item>핵심교양(표현과예술)</item>
+        <item>핵심교양(역사와철학)</item>
+        <item>핵심교양(인간과사회)</item>
+        <item>핵심교양(과학과기술)</item>
+        <item>일반교양</item>
+    </string-array>
+    <string-array name="subjectdivvalue">
+        <item>02</item>
+        <item>07</item>
+        <item>08</item>
+        <item>03</item>
+        <item>04</item>
+        <item>06</item>
+        <item>05</item>
+        <item>2012</item>
+        <item>1110</item>
+        <item>1131</item>
+        <item>1132</item>
+        <item>1133</item>
+        <item>1134</item>
+        <item>1135</item>
+        <item>1210</item>
+    </string-array>
+    <string-array name="time">
+        <item>전체</item>
+        <item>1교시</item>
+        <item>2교시</item>
+        <item>3교시</item>
+        <item>4교시</item>
+        <item>5교시</item>
+        <item>6교시</item>
+        <item>7교시</item>
+        <item>8교시</item>
+        <item>9교시</item>
+        <item>10교시</item>
+    </string-array>
+    <string-array name="univ01">
+        <item>전체</item>
+        <item>인문과학부</item>
+        <item>국어국문학</item>
+        <item>중어중문학</item>
+        <item>영어영문학</item>
+        <item>불어불문학</item>
+        <item>독어독문학</item>
+        <item>사학</item>
+        <item>철학</item>
+        <item>기독교학</item>
+    </string-array>
+    <string-array name="univ01value">
+        <item>10A20</item>
+        <item>10A21</item>
+        <item>10A24</item>
+        <item>10A27</item>
+        <item>10A25</item>
+        <item>10A26</item>
+        <item>10A23</item>
+        <item>10A22</item>
+        <item>10261</item>
+    </string-array>
+    <string-array name="univ02">
+        <item>전체</item>
+        <item>사회과학부</item>
+        <item>정치외교학</item>
+        <item>행정학</item>
+        <item>경제학</item>
+        <item>문헌정보학</item>
+        <item>사회학</item>
+        <item>사회복지학</item>
+        <item>심리학</item>
+        <item>소비자학</item>
+        <item>언론.홍보.영사학부</item>
+        <item>언론정보학</item>
+        <item>광고.홍보학</item>
+        <item>방송.영상학</item>
+        <item>커뮤니케이션.미디어학</item>
+    </string-array>
+    <string-array name="univ02value">
+        <item>10A50</item>
+        <item>10A51</item>
+        <item>10A52</item>
+        <item>10A53</item>
+        <item>10A54</item>
+        <item>10A55</item>
+        <item>10A59</item>
+        <item>10A57</item>
+        <item>10A58</item>
+        <item>10360</item>
+        <item>10361</item>
+        <item>10362</item>
+        <item>10363</item>
+        <item>10G11</item>
+    </string-array>
+    <string-array name="univ03">
+        <item>전체</item>
+        <item>수학</item>
+        <item>통계학</item>
+        <item>물리학</item>
+        <item>화학.나노과학</item>
+        <item>생명과학</item>
+        <item>화학.나노과학</item>
+        <item>생명과학</item>
+    </string-array>
+    <string-array name="univ03value">
+        <item>10B31</item>
+        <item>10B32</item>
+        <item>10B33</item>
+        <item>10G21</item>
+        <item>10G22</item>
+        <item>10B44</item>
+        <item>10B42</item>
+    </string-array>
+    <string-array name="univ04">
+        <item>전체</item>
+        <item>컴퓨터공학</item>
+        <item>전자공학</item>
+        <item>컴퓨터공학과</item>
+        <item>전자공학과</item>
+        <item>건축학</item>
+        <item>건축공학</item>
+        <item>환경공학</item>
+        <item>식품공학</item>
+        <item>화학신소재공학</item>
+    </string-array>
+    <string-array name="univ04value">
+        <item>10B81</item>
+        <item>10B82</item>
+        <item>10F80</item>
+        <item>10F90</item>
+        <item>10B62</item>
+        <item>10B63</item>
+        <item>10B71</item>
+        <item>10B72</item>
+        <item>10G31</item>
+    </string-array>
+    <string-array name="univ05">
+        <item>전체</item>
+        <item>건반악기</item>
+        <item>관현악</item>
+        <item>성악</item>
+        <item>작곡</item>
+        <item>한국음악</item>
+    </string-array>
+    <string-array name="univ05value">
+        <item>10D91</item>
+        <item>10D92</item>
+        <item>10D93</item>
+        <item>10D94</item>
+        <item>10D95</item>
+    </string-array>
+    <string-array name="univ06">
+        <item>전체</item>
+        <item>조형예술학부</item>
+        <item>동양화</item>
+        <item>서양화</item>
+        <item>조소</item>
+        <item>섬유예술</item>
+        <item>도자예술</item>
+        <item>공간디자인</item>
+        <item>시각디자인</item>
+        <item>산업디자인</item>
+        <item>패션디자인</item>
+        <item>영상디자인</item>
+        <item>의류학과</item>
+        <item>섬유예술</item>
+        <item>패션디자인</item>
+        <item>의류학</item>
+    </string-array>
+    <string-array name="univ06value">
+        <item>10E20</item>
+        <item>10E21</item>
+        <item>10E22</item>
+        <item>10E23</item>
+        <item>10E24</item>
+        <item>10E25</item>
+        <item>10E31</item>
+        <item>10E32</item>
+        <item>10E33</item>
+        <item>10E34</item>
+        <item>10E35</item>
+        <item>10E40</item>
+        <item>10F71</item>
+        <item>10F72</item>
+        <item>10F73</item>
+    </string-array>
+    <string-array name="univ07">
+        <item>전체</item>
+        <item>교육학과</item>
+        <item>유아교육과</item>
+        <item>초등교육과</item>
+        <item>교육공학과</item>
+        <item>특수교육과</item>
+        <item>유아특수교육</item>
+        <item>초등특수교육</item>
+        <item>영어교육과</item>
+        <item>사회과교육과</item>
+        <item>역사교육</item>
+        <item>지리교육</item>
+        <item>사회교육</item>
+        <item>국어교육과</item>
+        <item>과학교육과</item>
+        <item>물리교육</item>
+        <item>화학교육</item>
+        <item>생물교육</item>
+        <item>지구과학교육</item>
+        <item>수학교육과</item>
+    </string-array>
+    <string-array name="univ07value">
+        <item>10530</item>
+        <item>10540</item>
+        <item>10550</item>
+        <item>10640</item>
+        <item>10E50</item>
+        <item>10E51</item>
+        <item>10E52</item>
+        <item>10570</item>
+        <item>10F50</item>
+        <item>10F51</item>
+        <item>10F52</item>
+        <item>10F53</item>
+        <item>10D10</item>
+        <item>10750</item>
+        <item>10751</item>
+        <item>10752</item>
+        <item>10753</item>
+        <item>10754</item>
+        <item>10710</item>
+    </string-array>
+    <string-array name="univ08">
+        <item>전체</item>
+        <item>경영학</item>
+        <item>국제사무학과</item>
+    </string-array>
+    <string-array name="univ08value">
+        <item>10581</item>
+        <item>10D80</item>
+    </string-array>
+    <string-array name="univ09">
+        <item>전체</item>
+        <item>의학과</item>
+        <item>의예과</item>
+    </string-array>
+    <string-array name="univ09value">
+        <item>10850</item>
+        <item>10840</item>
+    </string-array>
+    <string-array name="univ10">
+        <item>전체</item>
+        <item>간호학부</item>
+        <item>간호학</item>
+        <item>글로벌건강간호학</item>
+        <item>체육과학</item>
+        <item>식품영양학과</item>
+        <item>보건관리학과</item>
+    </string-array>
+    <string-array name="univ10value">
+        <item>10F40</item>
+        <item>10F41</item>
+        <item>10F42</item>
+        <item>10E71</item>
+        <item>10D40</item>
+        <item>10D50</item>
+    </string-array>
+    <string-array name="univ11">
+        <item>전체</item>
+        <item>약학과</item>
+        <item>산업제약학과</item>
+    </string-array>
+    <string-array name="univ11value">
+        <item>10E80</item>
+        <item>10E90</item>
+    </string-array>
+    <string-array name="univ12">
+        <item>전체</item>
+        <item>스크랜튼학부</item>
+        <item>자기설계(통합적문화연구)</item>
+        <item>자기설계(디지털인문학)</item>
+        <item>자기설계(사회과학이니셔티브)</item>
+        <item>자기설계(과학과생명)</item>
+        <item>자기설계(인체와건강)</item>
+        <item>자기설계(과학융합)</item>
+        <item>자기설계(사회와정의)</item>
+        <item>뇌.인지과학</item>
+        <item>국제학부</item>
+        <item>국제학</item>
+    </string-array>
+    <string-array name="univ12value">
+        <item>10D60</item>
+        <item>10D6G</item>
+        <item>10D6H</item>
+        <item>10D6E</item>
+        <item>10D6F</item>
+        <item>10D6J</item>
+        <item>10D6D</item>
+        <item>10G41</item>
+        <item>10D70</item>
+        <item>10D71</item>
+    </string-array>
+    <string-array name="univ13">
+        <item>전체</item>
+        <item>법학과</item>
+    </string-array>
+    <string-array name="univ13value">
+        <item>10760</item>
+    </string-array>
+    <string-array name="universe">
+        <item>전체</item>
+        <item>인문과학대학</item>
+        <item>사회과학대학</item>
+        <item>자연과학대학</item>
+        <item>공과대학</item>
+        <item>음악대학</item>
+        <item>조형예술대학</item>
+        <item>사범대학</item>
+        <item>경영대학</item>
+        <item>의과대학</item>
+        <item>건강과학대학</item>
+        <item>약학대학</item>
+        <item>스크랜튼대학</item>
+        <item>예술대학</item>
+        <item>음악대학</item>
+        <item>조형예술대학</item>
+        <item>법과대학</item>
+        <item>체육과학대학</item>
+        <item>간호과학대학</item>
+        <item>생활환경대학</item>
+        <item>국제학부</item>
+    </string-array>
+    <!-- From: file:/Users/noirCynical/LuceteK/Project/EwhaTimeTable/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="cellColor01">#DDFFD7</color>
+    <color name="cellColor02">#FAFFBD</color>
+    <color name="cellColor03">#C5CAE9</color>
+    <color name="cellColor04">#FCDBB0</color>
+    <color name="cellColor05">#F8CCDF</color>
+    <color name="cellColor06">#BEF5AA</color>
+    <color name="cellColor07">#BBDEFB</color>
+    <color name="cellColor08">#B1D696</color>
+    <color name="cellColor09">#D1C4E9</color>
+    <color name="cellColor10">#F8F989</color>
+    <color name="cellColor11">#FAEFDE</color>
+    <color name="cellColor12">#E9FFAA</color>
+    <color name="cellColor13">#DCE775</color>
+    <color name="cellColor14">#B0BEC5</color>
+    <color name="cellColor15">#D7CCC8</color>
+    <color name="cellColor16">#9FEB81</color>
+    <color name="cellColor17">#B2EBF2</color>
+    <color name="cellColor18">#F9FBA6</color>
+    <color name="cellColor19">#B2DFDB</color>
+    <color name="cellColor20">#FFE4E1</color>
+    <color name="cellColor21">#C8E6C9</color>
+    <color name="cellColor22">#FAEED9</color>
+    <color name="cellColor23">#DCEDC8</color>
+    <color name="cellColor24">#DDFFD7</color>
+    <color name="cellColor25">#F0F4C3</color>
+    <color name="cellColor26">#FFF59D</color>
+    <color name="cellColor27">#FFF9C4</color>
+    <color name="cellColor28">#E6EE9C</color>
+    <color name="cellColor29">#FFECB3</color>
+    <color name="cellColor30">#C5E1A5</color>
+    <color name="cellColor31">#FFE0B2</color>
+    <color name="cellColor32">#A5D6A7</color>
+    <color name="cellColor33">#FFCCBC</color>
+    <color name="cellColor34">#80CBC4</color>
+    <color name="cellColor35">#E0E0E0</color>
+    <color name="cellColor36">#80DEEA</color>
+    <color name="cellColor37">#CFD8DC</color>
+    <color name="cellColor38">#B39DDB</color>
+    <color name="cellColor39">#F48FB1</color>
+    <color name="cellColor40">#F5B4D6</color>
+    <color name="cellColor41">#DDADAD</color>
+    <color name="cellColor42">#F3C9BD</color>
+    <color name="cellColor43">#DBDAC2</color>
+    <color name="cellColor44">#D3DEB6</color>
+    <color name="cellColor45">#FFE082</color>
+    <color name="cellColor46">#D7CCC8</color>
+    <color name="cellColor47">#B0BEC5</color>
+    <color name="cellColor48">#DCE775</color>
+    <color name="samplecolor">#88EEEEEE</color>
+    <!-- From: file:/Users/noirCynical/LuceteK/Project/EwhaTimeTable/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="accept">적용</string>
+    <string name="action_settings">Settings</string>
+    <string name="addTimeTable">시간표에 추가</string>
+    <string name="app_name">EwhaTimeTable</string>
+    <string name="back_finish">버튼을 한번 더 누르면 앱이 종료됩니다.</string>
+    <string name="calculateFragmentButtonText01">계산</string>
+    <string name="calculateFragmentResultText">학점 : </string>
+    <string name="close">닫기</string>
+    <string name="daySpinnerString">요일</string>
+    <string name="defaultspinner">전체</string>
+    <string name="delete">삭제</string>
+    <string name="deleteClassText01">과목을 삭제하시겠습니까?</string>
+    <string name="deleteClassText02">과목이 삭제되었습니다.</string>
+    <string name="drawer01">메인</string>
+    <string name="drawer02">강의 검색</string>
+    <string name="drawer03">시간표 관리</string>
+    <string name="drawer04">학점 계산기</string>
+    <string name="drawer05">개발자 정보</string>
+    <string name="editText01">학수번호</string>
+    <string name="editText02">교과목명</string>
+    <string name="editText03">담당교수</string>
+    <string name="err">1개 이상의 조건을 입력해주세요.</string>
+    <string name="gradeSpinnerString">학점</string>
+    <string name="gridFragmentPopupText01">과목명을 입력해주세요.</string>
+    <string name="gridFragmentPopupText02">장소를 입력해주세요.</string>
+    <string name="gridFragmentPopupText03">과목을 추가할 수 없는 시간입니다.</string>
+    <string name="gridFragmentPopupText04">과목명을 입력해주세요.</string>
+    <string name="gridFragmentText01">시간표 관리</string>
+    <string name="gridFragmentTimeText01">"08:00\r\n~\r\n09:15"</string>
+    <string name="gridFragmentTimeText02">"09:30\r\n~\r\n10:45"</string>
+    <string name="gridFragmentTimeText03">"11:00\r\n~\r\n12:15"</string>
+    <string name="gridFragmentTimeText04">"12:30\r\n~\r\n13:45"</string>
+    <string name="gridFragmentTimeText05">"14:00\r\n~\r\n15:15"</string>
+    <string name="gridFragmentTimeText06">"15:30\r\n~\r\n16:45"</string>
+    <string name="gridFragmentTimeText07">"17:00\r\n~\r\n18:15"</string>
+    <string name="gridFragmentTimeText08">"18:30\r\n~\r\n19:45"</string>
+    <string name="isEnglish">영어강의</string>
+    <string name="mainFragmentText01">시간표 보기</string>
+    <string name="mainFragmentText02">시간표 수정은 =시간표관리=메뉴에서 가능합니다.</string>
+    <string name="mainFragmentTutorialText">다시보지않기</string>
+    <string name="majSpinnerString">전공선택</string>
+    <string name="noresult">조건에 맞는 과목이 없습니다.</string>
+    <string name="overlayClass">해당 시간에 이미 과목이 등록되어있습니다</string>
+    <string name="popuptext01">학수번호-분반</string>
+    <string name="popuptext02">교과목구분</string>
+    <string name="popuptext03">개설학과(학년)</string>
+    <string name="popuptext04">학점 / 시간</string>
+    <string name="popuptext05">시간 : </string>
+    <string name="popuptext06">요일/교시</string>
+    <string name="popuptext07">교실</string>
+    <string name="popuptext08">영어강의</string>
+    <string name="popuptext09">수강제한인원</string>
+    <string name="popuptext10">비고</string>
+    <string name="popuptext11">교수</string>
+    <string name="search">검색</string>
+    <string name="semesterKind01">정규</string>
+    <string name="semesterKind02">계절</string>
+    <string name="semesterText">학기</string>
+    <string name="subKindSpinnerString">교과목구분</string>
+    <string name="subjectKindDetail01">교양선택</string>
+    <string name="timeSpinnerString">교시</string>
+    <string name="timetable">시간표</string>
+    <string name="univSpinnerString">단대선택</string>
+    <string name="viewtable">시간표검색</string>
+    <!-- From: file:/Users/noirCynical/LuceteK/Project/EwhaTimeTable/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="spinner_style">
+        <item name="android:background">@drawable/spinner_background</item>
+    </style>
+</resources>

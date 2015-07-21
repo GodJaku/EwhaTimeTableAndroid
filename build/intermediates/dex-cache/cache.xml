@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/noirCynical/LuceteK/Project/EwhaTimeTable/libs/jsoup-1.8.2.jar"
+        jumboMode="false"
+        revision="23.0.0 rc2"
+        sha1="580e4dd2a6125cc4037450b40623ac6a552c11df">
+        <dex dex="/Users/noirCynical/LuceteK/Project/EwhaTimeTable/build/intermediates/pre-dexed/release/jsoup-1.8.2-d447a7fed5f2971ce89d6af4f183f508ac00bd0b.jar" />
+    </item>
+    <item
+        jar="/Users/noirCynical/LuceteK/Project/EwhaTimeTable/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.0 rc2"
+        sha1="3e4e879d0b3dc11f2feb3f55e77e3b5bd82c4a28">
+        <dex dex="/Users/noirCynical/LuceteK/Project/EwhaTimeTable/build/intermediates/pre-dexed/release/android-support-v4-548f4cb0540be541feda13f2390dd5948d3c88ec.jar" />
+    </item>
+
+</items>
